@@ -2,24 +2,31 @@
   margin: 0 auto;
   max-width: 900px;
 }
-.mainInner{
-  max-width: 650px;
-  margin: auto;
-}
+
 
 main{
-  max-width: 650px;
+  max-width: 650px; /*もとは650px*/
   align-items: center;
 }
 
-.konochimei{
+.main_container{
+  padding: 15px;
+}
+
+.main_inner{
+  /* max-width: 650px; もとは650px   main でwidthについて書いているので不要*/
+  margin: auto;
+}
+
+
+.question{
   font-size: 30px;
   position: relative;
   display: inline-block;
   margin-bottom: 1em;
 }
 
-.konochimei::after{
+.question::after{
   content: '';
   position: absolute;
   left: 0%;
@@ -34,7 +41,7 @@ main{
   
 }
 .option{
-  font-size: 40px;
+  font-size: 30px;
   border:solid #EBEBEB ;
   border-width: 1.5px;
   border-bottom-width: 3px;
@@ -44,9 +51,9 @@ main{
 }
 
 
-.question-image-container{
+.question_image_container{
   padding: 20px;
 }
-.queston-image{
+.queston_image{
   
 }

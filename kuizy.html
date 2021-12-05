@@ -7,33 +7,58 @@
   <title>クイズ</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./normalize.css">
+  <script type="text/javascript" src="kuizy.js"></script>
+
 </head>
 <body class="body">
 
 <main>
+<div class="main_container">
 
-  <h1 class="question">
+  <h1 class="question_title">
     ガチで東京の人しか解けない！ #東京の難読地名クイズ
   </h1>
 
-  <div class="mainInner"> 
+  <div class="main_inner"> 
     <article>
-      <h2 class="konochimei">1.この地名はなんて読む？</h2>
+      <h2 class="question">1.この地名はなんて読む？</h2>
       <div class="question-image-container">    
-          <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png" alt="高輪" class="question-image">
+          <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png" alt="高輪" class="question_image">
       </div>
 
-  
-      <p class="option">たかなわ</p>
-      <p class="option">こうわ</p>
-      <p class="option">たかわ</p>
-  
-    </article>
+      <div class="option_list">
 
+        <div id="correctAnswerQ1">
+          <p class="option">たかなわ</p>
+        </div>
+        <div id="wrongAnswerQ1_1">
+          <p class="option">こうわ</p>
+        </div>
+        <div id="wrongAnswerQ1_2">
+          <p class="option">たかわ</p>
+        </div>
+      
+
+        <div class=""> 
+          <p>正解！</p>
+          <p>正解は「たかなわ」です！</p></div>
+        </div>
+
+        <div class="">
+          <p>不正解！</p>
+          <p>正解は「たかなわ」です！</p>
+        </div>
+      
+      </div>
+    </article>
   </div>
+
+</div>
 
 
 </main>
+
+<script src="/kuizy.js"></script>
 
 </body>
 
