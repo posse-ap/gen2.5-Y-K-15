@@ -7,8 +7,6 @@
   <title>クイズ</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./normalize.css">
-  <script type="text/javascript" src="kuizy.js"></script>
-
 </head>
 <body class="body">
 
@@ -19,38 +17,31 @@
     ガチで東京の人しか解けない！ #東京の難読地名クイズ
   </h1>
 
-  <div class="main_inner"> 
-    <article>
-      <h2 class="question">1.この地名はなんて読む？</h2>
+  <div class="main_inner" id="quiz_div_wrapper"> 
+    
+      <!-- <h2 class="question">1.この地名はなんて読む？</h2>
       <div class="question-image-container">    
-          <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png" alt="高輪" class="question_image">
+          <img src="/images/1.png" alt="高輪" class="question_image">
       </div>
 
-      <div class="option_list">
-
-        <div id="correctAnswerQ1">
-          <p class="option">たかなわ</p>
-        </div>
-        <div id="wrongAnswerQ1_1">
-          <p class="option">こうわ</p>
-        </div>
-        <div id="wrongAnswerQ1_2">
-          <p class="option">たかわ</p>
-        </div>
-      
-
-        <div class=""> 
+      <ul class="option_list" id="optionList">
+          <li class="option" id="correctAnswerQ1" onclick="show_answer_correct()">たかなわ</li>
+          <li class="option" id="wrongAnswerQ1_1" onclick="show_answer_wrong_1()">こうわ</li>        
+          <li class="option" id="wrongAnswerQ1_2" onclick="show_answer_wrong_2()">たかわ</li>
+      </ul>
+        <div class="hidden_message_correct" id="correctPopQ1"> 
           <p>正解！</p>
           <p>正解は「たかなわ」です！</p></div>
         </div>
 
-        <div class="">
+        <div class="hidden_message_wrong" id="wrongPopQ1">
           <p>不正解！</p>
           <p>正解は「たかなわ」です！</p>
-        </div>
+        </div> -->
       
       </div>
-    </article>
+
+
   </div>
 
 </div>

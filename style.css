@@ -14,18 +14,18 @@ main{
 }
 
 .main_inner{
-  /* max-width: 650px; もとは650px   main でwidthについて書いているので不要*/
+  max-width: 650px;
+  /* もとは650px   main でwidthについて書いているので不要  */
   margin: auto;
 }
 
-
+/* 問題文：この地名はなんて読む？ */
 .question{
   font-size: 30px;
   position: relative;
   display: inline-block;
   margin-bottom: 1em;
 }
-
 .question::after{
   content: '';
   position: absolute;
@@ -36,24 +36,66 @@ main{
   height: 5px;/*線の太さ*/
   /* -webkit-transform: translateX(-50%);
   transform: translateX(-50%);位置調整 */
-
   background-color:	#00AB36;/*線の色*/
+}
+
+/* 問題画像 */
+.question_image_container{
+  padding: 20px;
+}
+.queston_image{
   
 }
-.option{
+
+/* 選択肢 */
+.option_list{
+  list-style:none
+}
+.option_list .option{
   font-size: 30px;
   border:solid #EBEBEB ;
   border-width: 1.5px;
   border-bottom-width: 3px;
   padding: 10px ;
   box-shadow: 0px 2px 3px  #EBEBEB;
-
 }
 
 
-.question_image_container{
-  padding: 20px;
+/* 正解クリック時 */
+.option_correct_after{
+  font-size: 30px;
+  border:solid #EBEBEB ;
+  border-width: 1.5px;
+  border-bottom-width: 3px;
+  padding: 10px ;
+  box-shadow: 0px 2px 3px  #EBEBEB;
+  background-color: #287DFF;
+  color: white;
 }
-.queston_image{
-  
+.pop_up_correct{
+  display: block;
+}
+
+/* 不正解クリック時 */
+.option_wrong_after{
+  font-size: 30px;
+  border:solid #EBEBEB ;
+  border-width: 1.5px;
+  border-bottom-width: 3px;
+  padding: 10px ;
+  box-shadow: 0px 2px 3px  #EBEBEB;
+  background-color: #FF5128;
+  color: white;
+}
+
+.pop_up_wrong{
+  display: block;
+}
+
+/* ポップアップを隠す */
+.hidden_message_correct{
+  display: none;
+}
+.hidden_message_wrong{
+  display: none;
 }
