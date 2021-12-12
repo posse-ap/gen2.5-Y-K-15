@@ -56,8 +56,9 @@ main{
   border:solid #EBEBEB ;
   border-width: 1.5px;
   border-bottom-width: 3px;
-  padding: 10px ;
   box-shadow: 0px 2px 3px  #EBEBEB;
+  padding: 10px ;
+  margin: 10px;
 }
 
 
@@ -74,6 +75,28 @@ main{
 }
 .pop_up_correct{
   display: block;
+  background-color: #F5F5F5;
+  padding: 10px ;
+  margin: 10px;
+}
+
+
+/* 正解！のところ*/
+.correct{
+  position: relative;
+  font-weight: bold;
+  padding: 2px;
+}
+/* 正解！の下線 */
+.correct::after{
+  content: '';
+  position: absolute;
+  left: 0%;
+  bottom: -6px;/*線の上下位置*/
+  display: inline-block;
+  width: 50px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  background-color:	#287DFF;/*線の色*/
 }
 
 /* 不正解クリック時 */
@@ -87,12 +110,33 @@ main{
   background-color: #FF5128;
   color: white;
 }
-
 .pop_up_wrong{
   display: block;
+  background-color: #F5F5F5;
+  padding: 10px; /*上下左右が均等になるように調整*/
+  margin: 10px;
 }
 
-/* ポップアップを隠す */
+/* 不正解！のところ */
+.wrong{
+  position: relative;
+  font-weight: bold;
+  padding: 2px;
+}
+/* 不正解！の下線 */
+.wrong::after{
+  content: '';
+  position: absolute;
+  left: 0%;
+  bottom: -6px;/*線の上下位置*/
+  display: inline-block;
+  width: 66px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  background-color:	#FF5128;/*線の色*/
+}
+
+
+/* 回答ポップアップを隠す */
 .hidden_message_correct{
   display: none;
 }

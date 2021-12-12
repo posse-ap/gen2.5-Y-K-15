@@ -25,19 +25,19 @@ for (let i = 0 ; i<10 ; i++){
       +      `<img src="/images/${i + 1}.png" alt="" class="question_image">`
       + '</div>'
 
-      + '<ul class="option_list" id="optionList">'
+      + `<ul class="option_list" id="optionList${i + 1}">`
       + `<li class="option" id="correctAnswerQ${i + 1}" onclick="show_answer_correct(${i + 1})">${optionTextArray[i][0]}</li>`
       + `<li class="option" id="wrongAnswerQ${i + 1}_1" onclick="show_answer_wrong_1(${i + 1})">${optionTextArray[i][1]}</li>`
       +  `<li class="option" id="wrongAnswerQ${i + 1}_2" onclick="show_answer_wrong_2(${i + 1})">${optionTextArray[i][2]}</li>`
       + '</+ul>'
 
       + `<div class="hidden_message_correct" id="correctPopQ${i + 1}">`
-      +  '<p>正解！</p>'
-      +  '<p>正解は「たかなわ」です！</p></div>'
+      +  '<p class="correct">正解！</p>'
+      +  '<p">正解は「たかなわ」です！</p>'
       + '</div>'
 
       + `<div class="hidden_message_wrong" id="wrongPopQ${i + 1}">`
-      +   '<p>不正解！</p>'
+      +   '<p class="wrong">不正解！</p>'
       +   '<p>正解は「たかなわ」です！</p>'
       + '</div>'
       
@@ -54,7 +54,7 @@ for (let i = 0 ; i<10 ; i++){
 // let wrongAnswerQ1_2 = document.getElementById('wrongAnswerQ1_2');
 // let correctPopQ1 = document.getElementById('correctPopQ1');
 // let wrongPopQ1 = document.getElementById('wrongPopQ1');
-let optionList = document.getElementById('optionList');
+// let optionList = document.getElementById('optionList');
 
 
 
@@ -64,28 +64,34 @@ function show_answer_correct(quiz_num) {
   correctAnswer.classList.add('option_correct_after');
   correctPop.classList.add('pop_up_correct')
   correctPop.classList.remove('hidden_message_correct')
+
+  let optionList = document.getElementById(`optionList${quiz_num}`);
   optionList.style.pointerEvents = "none"
 }
 function show_answer_wrong_1(quiz_num) {
   let correctAnswer = document.getElementById(`correctAnswerQ${quiz_num}`)
   let wrongAnswer = document.getElementById(`wrongAnswerQ${quiz_num}_1`)
-  let wrongPop = document.getElementById(`wrongPopQ${quiz_num}_1`)
+  let wrongPop = document.getElementById(`wrongPopQ${quiz_num}`)
   wrongAnswer.classList.add('option_wrong_after');
   correctAnswer.classList.add('option_correct_after');
-  optionList.style.pointerEvents = "none";
   wrongPop.classList.add('pop_up_wrong');
   wrongPop.classList.remove('hidden_message_wrong');
+
+  let optionList = document.getElementById(`optionList${quiz_num}`);
+  optionList.style.pointerEvents = "none";
 }
 
 function show_answer_wrong_2(quiz_num) {
   let correctAnswer = document.getElementById(`correctAnswerQ${quiz_num}`)
   let wrongAnswer = document.getElementById(`wrongAnswerQ${quiz_num}_2`)
-  let wrongPop = document.getElementById(`wrongPopQ${quiz_num}_2`)
+  let wrongPop = document.getElementById(`wrongPopQ${quiz_num}`)
   wrongAnswer.classList.add('option_wrong_after');
   correctAnswer.classList.add('option_correct_after');
-  optionList.style.pointerEvents = "none";
   wrongPop.classList.add('pop_up_wrong');
   wrongPop.classList.remove('hidden_message_wrong');
+
+  let optionList = document.getElementById(`optionList${quiz_num}`);
+  optionList.style.pointerEvents = "none";
 }
 
 
