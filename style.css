@@ -1,21 +1,42 @@
 .body{
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 650px;
+  /* ここが900pxになっていたせいで縮小した時に若干左寄りになっていた。 */
 }
 
+/* ヘッダー */
+.header{
+background-color: white;
+display: flex;
+justify-content: space-between;
+position: fixed;
+width: 650px;/*position プロパティの値が fixed で、 left, right, width プロパティが auto に設定されている場合、横幅は内容に合わせて縮小します。*/
+z-index: 1000;/*これでヘッダーが一番前に来た*/
+}
+.kuizy_logo{
+width: 200px;
+}
+
+/* ヘッダーの右の部分 */
+.header_right_side{
+  display: flex;
+  flex-direction: row;
+}
 
 main{
   max-width: 650px; /*もとは650px*/
   align-items: center;
+  padding-top: 100px;
 }
 
 .main_container{
-  padding: 15px;
+  padding: 15px;/*横のスペース*/
+  
 }
 
 .main_inner{
-  max-width: 650px;
-  /* もとは650px   main でwidthについて書いているので不要  */
+  /* max-width: 650px; */
+  /* もとは650px   main でwidthについて書いているので不要だからコメントアウトした  */
   margin: auto;
 }
 
@@ -25,6 +46,7 @@ main{
   position: relative;
   display: inline-block;
   margin-bottom: 1em;
+
 }
 .question::after{
   content: '';
