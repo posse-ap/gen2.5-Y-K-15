@@ -28,13 +28,12 @@ let answerBoxArray = [
   '正解は「こぐれ」です！',
 ];
 
-let optionHtml = [
+// let optionHtml = [
+//   ' <li class="option" id="correctAnswerQ${i + 1}" onclick="show_answer_correct(${i + 1})">${optionTextArray[i][0]}</li> ',
+//   ' <li class="option" id="wrongAnswerQ${i + 1}_1" onclick="show_answer_wrong_1(${i + 1})">${optionTextArray[i][1]}</li> ',
+//   ' <li class="option" id="wrongAnswerQ${i + 1}_2" onclick="show_answer_wrong_2(${i + 1})">${optionTextArray[i][2]}</li> ',
+// ]
 
-  ' `<li class="option" id="correctAnswerQ${i + 1}" onclick="show_answer_correct(${i + 1})">${optionTextArray[i][0]}</li>` ',
-  ' `<li class="option" id="wrongAnswerQ${i + 1}_1" onclick="show_answer_wrong_1(${i + 1})">${optionTextArray[i][1]}</li>` ',
-  ' `<li class="option" id="wrongAnswerQ${i + 1}_2" onclick="show_answer_wrong_2(${i + 1})">${optionTextArray[i][2]}</li>` ',
-
-]
 
 //ソートされた配列
 let a = [0,1,2];
@@ -55,11 +54,31 @@ let tmp = 0;
 
 
 
+
 //下のfor文の中に書いたhtmlをぶち込む先
 let quizDivWrapper = document.getElementById('quizDivWrapper');
 
 //htmlへ記述したいことをfor文で繰り返し生成している。
 for (let i = 0 ; i<10 ; i++){
+
+  for(j = a.length -1;j>0;j--){
+    //乱数生成を使ってランダムに取り出す値を決める
+    r = Math.floor(Math.random()*(j+1));
+    //取り出した値と箱の外の先頭の値を交換する
+    tmp = a[j];
+    a[j] = a[r];
+    a[r] = tmp;    
+  }
+  console.log(a)
+  
+
+  let optionHtml = [
+    ` <li class="option" id="correctAnswerQ${i + 1}" onclick="show_answer_correct(${i + 1})">${optionTextArray[i][0]}</li> `,
+    ` <li class="option" id="wrongAnswerQ${i + 1}_1" onclick="show_answer_wrong_1(${i + 1})">${optionTextArray[i][1]}</li> `,
+    ` <li class="option" id="wrongAnswerQ${i + 1}_2" onclick="show_answer_wrong_2(${i + 1})">${optionTextArray[i][2]}</li> `,
+  ]
+  
+
   let articles = 
     '<div class="quiz_div"> '
       //「この地名はなんて読む？」と漢字の画像
@@ -70,16 +89,9 @@ for (let i = 0 ; i<10 ; i++){
 
       //選択肢 一番上（配列の0番目）が正解の選択肢になっている。
 
-      for(j = a.length -1;j>0;j--){
-        //乱数生成を使ってランダムに取り出す値を決める
-        r = Math.floor(Math.random()*(j+1));
-        //取り出した値と箱の外の先頭の値を交換する
-        tmp = a[j];
-        a[j] = a[r];
-        a[r] = tmp;
-      }
 
       + `<ul class="option_list" id="optionList${i + 1}">`
+
 
         // + `<li class="option" id="correctAnswerQ${i + 1}" onclick="show_answer_correct(${i + 1})">${optionTextArray[i][0]}</li>`
   
@@ -87,11 +99,10 @@ for (let i = 0 ; i<10 ; i++){
   
         // +  `<li class="option" id="wrongAnswerQ${i + 1}_2" onclick="show_answer_wrong_2(${i + 1})">${optionTextArray[i][2]}</li>`
 
-
-        +`${optionHtml[a[0]]}`
-        +`${optionHtml[a[1]]}`
-        +`${optionHtml[a[2]]}`
-
+        
+        +optionHtml[a[0]]
+        +optionHtml[a[1]]
+        +optionHtml[a[2]]
 
         + '</+ul>'
   
