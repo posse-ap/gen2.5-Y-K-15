@@ -28,38 +28,23 @@ let answerBoxArray = [
   '正解は「こぐれ」です！',
 ];
 
-// let optionHtml = [
-//   ' <li class="option" id="correctAnswerQ${i + 1}" onclick="show_answer_correct(${i + 1})">${optionTextArray[i][0]}</li> ',
-//   ' <li class="option" id="wrongAnswerQ${i + 1}_1" onclick="show_answer_wrong_1(${i + 1})">${optionTextArray[i][1]}</li> ',
-//   ' <li class="option" id="wrongAnswerQ${i + 1}_2" onclick="show_answer_wrong_2(${i + 1})">${optionTextArray[i][2]}</li> ',
-// ]
-
-
 //ソートされた配列
 let a = [0,1,2];
 let j = 0;
 let r = 0;
 let tmp = 0;
 
-// for(j = a.length -1;j>0;j--){
-//   //乱数生成を使ってランダムに取り出す値を決める
-//   r = Math.floor(Math.random()*(j+1));
-//   //取り出した値と箱の外の先頭の値を交換する
-//   tmp = a[j];
-//   a[j] = a[r];
-//   a[r] = tmp;
-// }
-
-
-
-
-
-
 //下のfor文の中に書いたhtmlをぶち込む先
 let quizDivWrapper = document.getElementById('quizDivWrapper');
 
 //htmlへ記述したいことをfor文で繰り返し生成している。
 for (let i = 0 ; i<10 ; i++){
+  
+  let optionHtml = [
+    ` <li class="option" id="correctAnswerQ${i + 1}" onclick="show_answer_correct(${i + 1})">${optionTextArray[i][0]}</li> `,
+    ` <li class="option" id="wrongAnswerQ${i + 1}_1" onclick="show_answer_wrong_1(${i + 1})">${optionTextArray[i][1]}</li> `,
+    ` <li class="option" id="wrongAnswerQ${i + 1}_2" onclick="show_answer_wrong_2(${i + 1})">${optionTextArray[i][2]}</li> `,
+  ]
 
   for(j = a.length -1;j>0;j--){
     //乱数生成を使ってランダムに取り出す値を決める
@@ -69,15 +54,6 @@ for (let i = 0 ; i<10 ; i++){
     a[j] = a[r];
     a[r] = tmp;    
   }
-  console.log(a)
-  
-
-  let optionHtml = [
-    ` <li class="option" id="correctAnswerQ${i + 1}" onclick="show_answer_correct(${i + 1})">${optionTextArray[i][0]}</li> `,
-    ` <li class="option" id="wrongAnswerQ${i + 1}_1" onclick="show_answer_wrong_1(${i + 1})">${optionTextArray[i][1]}</li> `,
-    ` <li class="option" id="wrongAnswerQ${i + 1}_2" onclick="show_answer_wrong_2(${i + 1})">${optionTextArray[i][2]}</li> `,
-  ]
-  
 
   let articles = 
     '<div class="quiz_div"> '
@@ -88,30 +64,18 @@ for (let i = 0 ; i<10 ; i++){
       + '</div>'
 
       //選択肢 一番上（配列の0番目）が正解の選択肢になっている。
-
-
       + `<ul class="option_list" id="optionList${i + 1}">`
-
-
-        // + `<li class="option" id="correctAnswerQ${i + 1}" onclick="show_answer_correct(${i + 1})">${optionTextArray[i][0]}</li>`
-  
-        // + `<li class="option" id="wrongAnswerQ${i + 1}_1" onclick="show_answer_wrong_1(${i + 1})">${optionTextArray[i][1]}</li>`
-  
-        // +  `<li class="option" id="wrongAnswerQ${i + 1}_2" onclick="show_answer_wrong_2(${i + 1})">${optionTextArray[i][2]}</li>`
-
-        
         +optionHtml[a[0]]
         +optionHtml[a[1]]
         +optionHtml[a[2]]
-
-        + '</+ul>'
-  
+      + '</+ul>'
 
       //正解の時の回答ボックスのメッセージ
       + `<div class="hidden_message_correct" id="correctPopQ${i + 1}">`
       +  '<p class="correct">正解！</p>'
       +  `<p>${answerBoxArray[i]}</p>`
       + '</div>'
+
       //不正解の時の回答ボックスのメッセージ
       + `<div class="hidden_message_wrong" id="wrongPopQ${i + 1}">`
       +   '<p class="wrong">不正解！</p>'
@@ -122,15 +86,8 @@ for (let i = 0 ; i<10 ; i++){
 
   //↓ 上でつくったquiz_divというidがつけられたdivをkuizy.htmlのquizDivWrapperというidがつけられたdivのなかにぶちこんでいる。beforeend！！
   quizDivWrapper.insertAdjacentHTML('beforeend',articles)
-}
 
-// let correctAnswerQ1 = document.getElementById('correctAnswerQ1');
-// let wrongAnswerQ1_1 = document.getElementById('wrongAnswerQ1_1');
-// let wrongAnswerQ1_2 = document.getElementById('wrongAnswerQ1_2');
-// let correctPopQ1 = document.getElementById('correctPopQ1');
-// let wrongPopQ1 = document.getElementById('wrongPopQ1');
-// let optionList = document.getElementById('optionList');
-// ＜！！！＞ ↑ idは1つのhtmlで同じのは一回しか使えないので、上のfor文の`<ul class="option_list" id="optionList${i + 1}">`のようにテンプレートリテラルを使ってあげて繰り返しのそれぞれについて、idが違う値になるようにしないといけない。
+}
 
 //正解のボタン押したときの表示変更や回答ボックスの表示
 function show_answer_correct(quiz_num) {

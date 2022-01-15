@@ -31,12 +31,9 @@ main{
 
 .main_container{
   padding: 15px;/*横のスペース*/
-  
 }
 
 .main_inner{
-  /* max-width: 650px; */
-  /* もとは650px   main でwidthについて書いているので不要だからコメントアウトした  */
   margin: auto;
 }
 
@@ -46,8 +43,8 @@ main{
   position: relative;
   display: inline-block;
   margin-bottom: 1em;
-
 }
+
 .question::after{
   content: '';
   position: absolute;
@@ -56,8 +53,6 @@ main{
   display: inline-block;
   width: 200px;/*線の長さ*/
   height: 5px;/*線の太さ*/
-  /* -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);位置調整 */
   background-color:	#00AB36;/*線の色*/
 }
 
@@ -65,14 +60,12 @@ main{
 .question_image_container{
   padding: 20px;
 }
-.queston_image{
-  
-}
 
 /* 選択肢 */
 .option_list{
   list-style:none
 }
+
 .option_list .option{
   font-size: 30px;
   border:solid #EBEBEB ;
@@ -82,7 +75,6 @@ main{
   padding: 10px ;
   margin: 10px;
 }
-
 
 /* 正解クリック時 */
 .option_correct_after{
@@ -95,6 +87,7 @@ main{
   background-color: #287DFF;
   color: white;
 }
+
 .pop_up_correct{
   display: block;
   background-color: #F5F5F5;
@@ -102,13 +95,13 @@ main{
   margin: 10px;
 }
 
-
-/* 正解！のところ*/
+/* 正解！の文字*/
 .correct{
   position: relative;
   font-weight: bold;
   padding: 2px;
 }
+
 /* 正解！の下線 */
 .correct::after{
   content: '';
@@ -132,6 +125,7 @@ main{
   background-color: #FF5128;
   color: white;
 }
+
 .pop_up_wrong{
   display: block;
   background-color: #F5F5F5;
@@ -162,6 +156,7 @@ main{
 .hidden_message_correct{
   display: none;
 }
+
 .hidden_message_wrong{
   display: none;
 }
