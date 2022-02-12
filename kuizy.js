@@ -89,6 +89,7 @@ for (let i = 0 ; i<10 ; i++){
 
 }
 
+
 //正解のボタン押したときの表示変更や回答ボックスの表示
 function show_answer_correct(quiz_num) {
   let correctAnswer = document.getElementById(`correctAnswerQ${quiz_num}`)
@@ -126,3 +127,4 @@ function show_answer_wrong_2(quiz_num) {
   let optionList = document.getElementById(`optionList${quiz_num}`);
   optionList.style.pointerEvents = "none";
 }
+// console.log('a')
