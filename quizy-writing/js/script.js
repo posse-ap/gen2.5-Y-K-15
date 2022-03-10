@@ -25,16 +25,16 @@ for(let i = 0;i<3;i++){
 
   let sectionHTML = [
 
-    `<li class="" id ="correctSelectionQ${i}" onclick = showAnswerCorrect(${i})> ${sectionPlaceName[i][0]}</li>` ,
+    `<li class="selection" id ="correctSelectionQ${i}" onclick = showAnswerCorrect(${i})> ${sectionPlaceName[i][0]}</li>` ,
     
-    `<li class="" id ="incorrectSelectionQ${i}-1" onclick = showAnswerIncorrect1(${i}) changeSelectionBoxColor(${i})> ${sectionPlaceName[i][1]}</li>` ,
+    `<li class="selection" id ="incorrectSelectionQ${i}-1" onclick = showAnswerIncorrect1(${i}) changeSelectionBoxColor(${i}) > ${sectionPlaceName[i][1]}</li>` ,
 
-    `<li class="" id ="incorrectSelectionQ${i}-2" onclick = showAnswerIncorrect2(${i}) changeSelectionBoxColor(${i})> ${sectionPlaceName[i][2]}</li>`
+    `<li class="selection" id ="incorrectSelectionQ${i}-2" onclick = showAnswerIncorrect2(${i}) changeSelectionBoxColor(${i}) > ${sectionPlaceName[i][2]}</li>`
   ];
   
 
   let quizHtml = `<div class="quiz" id="quiz${i+1}" >`
-  +`  <div class="question-sentences">${i+1}この地名は何て読む？</div>`
+  +`  <div class="question-sentences">${i+1}.この地名は何て読む？</div>`
   +`  <div class="kanji-picture">`
   +`    <img src="./pictures/${i+1}.png" alt="">`
 +`  </div>`
@@ -45,13 +45,13 @@ for(let i = 0;i<3;i++){
 +       `${sectionHTML[a[1]]}`
 +       `${sectionHTML[a[2]]}`
 
-+`      <li class="result-correct-before" id="resultCorrectQ${i}">`
-+`        <p>正解！</p>`
++`      <li class="result-correct-before result-message" id="resultCorrectQ${i}">`
++`        <p class="result-message-correct">正解！</p>`
 +`        <p>正解は「${sectionPlaceName[i][0]}」です！</p>`
 +`      </li>`
 
-+`      <li class="result-incorrect-before" id="resultIncorrectQ${i}">`
-+`        <p>不正解！</p>`
++`      <li class="result-incorrect-before result-message" id="resultIncorrectQ${i}">`
++`        <p class="result-message-incorrect">不正解！</p>`
 +`        <p>正解は「${sectionPlaceName[i][0]}」です！</p>`
 +`      </li>`
 
