@@ -1,5 +1,10 @@
 body{
-  width: 1000px;
+  /* width: 1000px; */
+
+  background-color: #F5F5F8;
+
+ 
+
 }
 
 header{
@@ -9,14 +14,23 @@ header{
   justify-content: space-between;
   margin-bottom: 10px;
 
+  background-color: white;
+
+  box-shadow: 0px 0px 5px lightgray;
+
+
 }
 
 .header-left{
-  height: 25px;
-  
+  padding-left: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+
 .header-logo{
   height: 100%;
+  padding: 18px 0px;
 
 }
 
@@ -24,14 +38,34 @@ header{
   height: 100%;
 }
 
-.header-right-button{
-  height: 100%;
+.week-count{
+  color: #A2C0D6;
+  margin-left: 30px;
+}
 
+.header-right{
+  height: 100%;
+  padding: 10px 40px 10px 40px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+}
+
+.header-right-button{
+  background: linear-gradient(to right, #1073BD,  #3BCDFE);
+  color: white;
+  
+  padding: 10px 40px ;
+  /* height: 44px; */
+  border-radius: 50px;
+  box-shadow: 0px 5px 15px #1F92D4 ;
 }
 
 
 main{
   width: 100%;
+  padding: 0px 50px;
 }
 
 .main-inner{
@@ -45,6 +79,7 @@ main{
   /* margin: 10px; */
   border-radius: 10px;
   box-shadow: 0px 0px 5px lightgray;
+  background-color: white;
 }
 
 .main-left{
@@ -71,18 +106,31 @@ main{
 
 .study-time-card div{
   height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  padding: 15px;
+
 }
 
 .time-span{
   color: #0F71BC;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .study-time-figure{
   color: #111111;
+  font-size: 35px;
+  font-weight: bold;
 }
 
 .hour{
   color: #97B9D1;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 /* 左下の棒グラフ */
@@ -94,11 +142,12 @@ main{
 
 .study-time-bargraph{
   padding: 10px;
-  
+  height: 100%;
 }
 
 .study-time-bargraph img{
-  width: 100%;
+  /* width: 100%; */
+  height: 100%;
 }
 
 
@@ -112,8 +161,13 @@ main{
 
 /* 右側の円グラフ */
 
-.pie-chart-container{
-  margin: 10px;
+.pie-chart-wrapper{
+  padding: 10px;
+  height: 100%;
+  width: 50%;
+}
+
+.pie-chart-card{
   height: 100%;
 }
 
@@ -122,6 +176,7 @@ main{
   padding: 20px;
   font-size: 20px;
   height: 13%;
+  font-weight: bold;
 }
 
 
@@ -138,6 +193,7 @@ main{
 .pie-chart img{
   /* object-fit: contain; */
   height: 100%;
+  width: 100%;
 }
 
 .pie-chart-index{
@@ -150,4 +206,417 @@ main{
   /* object-fit: contain; */
   height: 100%;
   
+  width: 100%;
+}
+
+
+.change-month{
+  display: flex;
+  justify-content: space-around;
+  width: 25%;
+  height: 15px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.change-to-previous-month{
+  color:#1575BE;
+  font-weight:5000 ;
+  font-weight: bold;
+}
+
+.month{
+  font-weight: bold;
+}
+
+.change-to-next-month{
+  color: #98B9D1;
+  font-weight: bold;
+}
+
+
+/* .modal{
+
+  font-size: 15px;
+
+  background-color: white;
+  margin: 0 auto;
+  width: 900px;
+  
+  margin-bottom: 100px;  仮 */
+
+  /* border-radius: 30px;
+  
+} */
+
+
+.submit-button p{
+  color: white;
+  font-size: 18px;
+  /* 中央揃え */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+}
+
+.close-button-container{
+display: flex;
+justify-content: flex-end;
+margin: 0px 20px;
+}
+
+.close-button{
+transform: translate(0%,50%);
+background-color: #F5F5F8;
+border-radius: 100px;
+padding:8px;
+display: inline-block;
+/* margin-left: 844px; */
+}
+
+.batsu {
+display: block;
+position: relative;
+width: 20px;
+height: 20px;
+}
+
+.batsu::before, .batsu::after { /* 共通設定 */
+content: "";
+position: absolute;
+top: 50%;
+left: 50%;
+width: 2px; /* 棒の幅（太さ） */
+height: 20px; /* 棒の高さ */
+background: #666666;
+}
+
+.batsu::before {
+transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.batsu::after {
+transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+
+.record-modal{
+  display: none;
+  z-index: 2;
+  position: fixed;
+
+
+  font-size: 15px;
+
+  background-color: white;
+  margin: 0 auto;
+  width: 900px;
+  
+  margin-bottom: 100px;  /*仮*/
+
+  border-radius: 30px;
+}
+
+
+
+.modal-forms{
+  display: flex;
+  height: 430px;
+}
+
+
+.form-left,.form-right{
+  margin: 0 20px;
+  width: 410px;
+  height: 100%;
+
+
+
+}
+
+.form-left{
+  padding-left: 36px;
+}
+
+.form-right{
+  padding-right: 36px;
+}
+
+
+
+
+.form-content{
+  padding: 29px 0px 0px 0px;
+}
+.form-content-title{
+  margin-bottom: 5px;
+}
+/* テキストボックス関係 */
+.input-text-common{
+  background-color: #F5F5F8;
+  border-radius: 10px;
+  width: 100%;
+  padding: 15px 20px;
+}
+
+
+/* チェックボックス */
+.checkbox-wrapper{
+  background-color: #F5F5F8;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 8px;
+  margin: 4px;
+}
+/*参考 https://web-tsuku.life/fontawesome-checkbox-design/ */
+.checkbox {
+  display: none;
+}
+
+.checkbox-fontas {
+  position: relative;
+  vertical-align: middle;
+  font-size: 18px;
+}
+.checkbox + .checkbox-fontas:before {
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  content: '\f058';
+  color: #ccc;
+}
+.checkbox:checked + .checkbox-fontas:before {
+  color: #0F71BD;
+}
+
+
+
+
+/* Twitter用コメント */
+textarea{
+  resize: none;
+  width:374px;
+  height:235px;
+
+}
+
+/* twitterシェアのチェックボックス */
+.checkbox-twitter {
+  display: none;
+}
+
+.checkbox-fontas-twitter {
+  position: relative;
+  vertical-align: middle;
+  font-size: 30px;
+}
+.checkbox-twitter + .checkbox-fontas-twitter:before {
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  content: '\f058';
+  color: #cccccc;
+}
+.checkbox-twitter:checked + .checkbox-fontas-twitter:before {
+  color: #0F71BD;
+}
+
+.button-to-share{
+  margin-top: 10px;
+}
+
+
+
+  
+  .submit-button{
+    
+    background: linear-gradient(to right, #1073BD,  #3BCDFE);
+    box-shadow: 0px 5px 15px #1F92D4 ;
+    border-radius: 50px;
+    
+    width: 300px;
+    height: 45px;
+    margin: 20px auto;
+
+
+
+
+    left: 50%;
+    transform: translate(-50%,0);
+
+
+    /* 中の文字の中央揃え */
+    display: inline-block;
+    position: relative;
+  }
+  
+  
+.submit-finish-modal{
+  height: 555.5px;
+  background: white;
+
+  position: relative;
+
+  display: none;
+
+
+
+
+  font-size: 15px;
+
+  background-color: white;
+  margin: 0 auto;
+  width: 900px;
+  
+  margin-bottom: 100px;  /*仮*/
+
+  border-radius: 30px;
+}
+
+.submit-finish-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+}
+
+.gj-message{
+  color: #C5E174;
+  font-size: 25px;
+  text-align: center;
+}
+
+.submit-finish-checkmark{
+  text-align: center;
+}
+
+/* 完了のチェックマーク */
+.checkbox-finish {
+  display: none;
+}
+.checkbox-fontas-finish {
+  position: relative;
+  vertical-align: middle;
+  font-size: 100px;
+}
+.checkbox-finish + .checkbox-fontas-finish:before {
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  content: '\f058';
+  color: #C5E174;
+}
+.checkbox-finish:checked + .checkbox-fontas-finish:before {
+  color: #C5E174;
+}
+
+.finish-message-text{
+  color: black;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ボタンのデザイン */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: linear-gradient(to right bottom, #FFA500, #FF6347);
+  border-radius: 5px;
+  color: #fff;
+  margin: 20px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: .8;
+}
+
+/* オーバーレイ */
+.overlay {
+  /* 位置を固定 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* 画面いっぱいに広がるようにする */
+  width: 100%;
+  height: 100vh;
+  /* rgbaを使って60%の黒いオーバーレイにする */
+  background: rgba(0, 0, 0, 0.6);  
+  /* デフォルトでは見えないようにする */
+  opacity: 0;
+  visibility: hidden;
+  /* 表示する際の変化の所要時間 */
+  transition: .3s;
+}
+
+/* activeクラスのついたオーバーレイ */
+.overlay.active {
+  /* activeクラスがついたときにオーバーレイを表示する */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* モーダルウィンドウ */
+.modal {
+  max-width: 500px;
+  width: 86%;
+  padding: 15px 20px;
+  background: #fff;
+  /* 位置の調整(真ん中に表示) */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* デフォルトでは非表示にしておく */
+  opacity: 0;
+  visibility: hidden;
+  /* 表示の変化にかかる時間 */
+  transition: .3s;
+}
+
+/* activeクラスのついたモーダルウィンドウ */
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* モーダルウィンドウ内の閉じるボタン */
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.modal h2 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  font-size: 13px;
+}
+
+/* スクロールできる高さを出すための設定 */
+section {
+  height: 200vh;
 }

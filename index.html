@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,33 @@
   <title>POSSE学習記録アプリのトップ画面</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="./css/reset.css">
+
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.min.js"></script> -->
+  <script src="js/jquery-3.6.0.min.js"></script>
+
+
 </head>
+
 <body>
   <header>
+    <!-- <div class="header-inner"> -->
     <div class="header-left">
       <div class="header-logo">
         <img src="./pictures/posseLogo.png" alt="">
       </div>
+      <div>
+        <p class="week-count">4th week</p>
+      </div>
     </div>
-    <div class="header-right-button">
-      記録・投稿
+    <div class="header-right">
+      <div class="header-right-button">
+        <a href="" id="openRecordModal">記録・投稿</a>
+      </div>
     </div>
+    <!-- </div> -->
   </header>
-  
+
   <main>
     <div class="main-inner">
 
@@ -36,60 +51,64 @@
           <div class="study-time-card">
             <div class="content-box">
               <p class="time-span">Month</p>
-              <p class="study-time-figure">3</p>
+              <p class="study-time-figure">120</p>
               <p class="hour">hour</p>
             </div>
           </div>
           <div class="study-time-card">
             <div class="content-box">
               <p class="time-span">Total</p>
-              <p class="study-time-figure">3</p>
+              <p class="study-time-figure">1348</p>
               <p class="hour">hour</p>
             </div>
           </div>
         </div>
-        
+
         <div class="study-time-bargraph-container">
           <div class="study-time-bargraph content-box">
             <img src="./pictures/bargraph.jpg" alt="">
           </div>
         </div>
       </div>
-    
+
       <div class="main-right">
-        <div class="pie-chart-container content-box">
-          <p class="graph-title">学習言語</p>
-          <div class="pie-chart study-languege-graph">
-            <img src="./pictures/pie chart.jpg" alt="">
-          </div>
-          <div class="pie-chart-index">
-            <img src="./pictures/pie chart index.jpg" alt="">
+        <div class="pie-chart-wrapper">
+          <div class="pie-chart-card content-box">
+            <p class="graph-title">学習言語</p>
+            <div class="pie-chart study-languege-graph">
+              <img src="./pictures/pie chart.jpg" alt="">
+            </div>
+            <div class="pie-chart-index">
+              <img src="./pictures/pie chart index.jpg" alt="">
+            </div>
           </div>
         </div>
-        <div class="pie-chart-container content-box">
-          <p class="graph-title">学習コンテンツ</p>
-          <div class="pie-chart study-contents-graph ">
-            <img src="./pictures/pie chart.jpg" alt="">
-          </div>
-          <div class="pie-chart-index">
-            <img src="./pictures/pie chart index.jpg" alt="">
+        <div class="pie-chart-wrapper">
+          <div class="pie-chart-card content-box">
+            <p class="graph-title">学習コンテンツ</p>
+            <div class="pie-chart study-contents-graph ">
+              <img src="./pictures/pie chart.jpg" alt="">
+            </div>
+            <div class="pie-chart-index">
+              <img src="./pictures/pie chart index.jpg" alt="">
+            </div>
           </div>
         </div>
 
       </div>
-    
+
     </div>
 
 
     <div class="change-month">
       <div class="change-to-previous-month">
-
+        ＜
       </div>
       <div class="month">
         2022年3月
       </div>
       <div class="change-to-next-month">
-
+        ＞
       </div>
     </div>
 
@@ -97,5 +116,203 @@
   </main>
 
 
+
+  <div class=" record-modal" id="recordModal">
+
+    <div class="close-button-container">
+      <a href="">
+        <div class="close-button" id="closeRecordModal">
+          <span class="batsu"></span>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="modal-forms">
+
+      <div class="form-left">
+
+
+        <div class="form-content">
+          <label class="">
+            <p class="form-content-title">学習日</p>
+            <input type="text" name="date" id="date" class="input-text-common">
+          </label>
+        </div>
+
+        <div class="form-content form-study-content">
+          <p class="form-content-title">学習コンテンツ（複数選択可）</p>
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="Nyobikou" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              N予備校
+            </label>
+          </div>
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="dotInstall" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              ドットインストール
+            </label>
+          </div>
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="PosseHomework" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              POSSE課題
+            </label>
+          </div>
+        </div>
+
+
+        <div class="form-content">
+          <p class="form-content-title">学習言語（複数選択可）</p>
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              HTML
+            </label>
+          </div>
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              CSS
+            </label>
+          </div>
+
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              JavaScript
+            </label>
+          </div>
+
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              PHP
+            </label>
+          </div>
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              Laravel
+            </label>
+          </div>
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              SQL
+            </label>
+          </div>
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              SHELL
+            </label>
+          </div>
+          <div class="checkbox-wrapper">
+            <label class="">
+              <input type="checkbox" name="" id="" class="checkbox">
+              <span class="checkbox-fontas"></span>
+              情報システム基礎知識（その他）
+            </label>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div class="form-right">
+
+        <div class="form-content">
+          <label class="">
+            <p class="form-content-title">学習時間</p>
+            <input type="text" name="study-time" id="studyTime" class="input-text-common">
+          </label>
+        </div>
+
+        <div class="form-content">
+          <label class="">
+            <p class="form-content-title">Twitter用コメント</p>
+            <textarea name="" id="" cols="50" rows="10" class="input-text-common"></textarea>
+          </label>
+          <div class="button-to-share">
+            <label>
+              <input type="checkbox" name="" id="" class="checkbox-twitter">
+              <span class="checkbox-fontas-twitter"></span>
+              Twitterにシェアする
+            </label>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    <div class="submit-button">
+      <p>記録・投稿</p>
+    </div>
+
+
+
+  </div>
+
+
+  <div class=" submit-finish-modal">
+    <div class="close-button-container">
+      <div class="close-button">
+        <span class="batsu"></span>
+      </div>
+    </div>
+    
+    <div class="submit-finish-content">
+      <p class="gj-message">AWESOME!</p>
+      <div class="submit-finish-checkmark">
+        <input type="checkbox" name="" id="" class="checkbox-finish">
+        <span class="checkbox-fontas-finish"></span>
+      </div>
+      <div class="finish-message">
+        <p class="finish-message-text">記録・投稿</p>
+        <p class="finish-message-text">完了しました</p>
+      </div>
+    </div>
+    
+  </div>
+
+
+
+
+<!-- クリックしたらモーダルを表示するボタン -->
+<a href="#" class="btn">モーダルウィンドウを表示</a>
+
+<!-- オーバーレイ -->
+<div class="overlay"></div>
+
+<!-- モーダルウィンドウ -->
+<div class="modal">
+  <div class="close">&times</div>
+    <h2>モダルのタイトル</h2>
+    <p>ここにモダルの内容が入ります。ここにモダルの内容が入ります。ここにモダルの内容が入ります。ここにモダルの内容が入ります。ここにモダルの内容が入ります。ここにモダルの内容が入ります。</p>
+</div>
+
+<!-- スクロールで高さを出すためのsectionタグ -->
+<section></section>
+
+
+<script src="./js/script.js"></script>
+
 </body>
+
 </html>
