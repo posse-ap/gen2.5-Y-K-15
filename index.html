@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="./css/reset.css">
 
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.min.js"></script> -->
+
   <script src="js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 
 </head>
@@ -28,9 +29,9 @@
       </div>
     </div>
     <div class="header-right">
-      <div class="header-right-button">
-        <a href="" id="openRecordModal">記録・投稿</a>
-      </div>
+      <a href="#" id="openRecordModalBtn" class="btn">
+        <p class="header-right-button">記録・投稿</p>
+      </a>
     </div>
     <!-- </div> -->
   </header>
@@ -75,11 +76,11 @@
         <div class="pie-chart-wrapper">
           <div class="pie-chart-card content-box">
             <p class="graph-title">学習言語</p>
-            <div class="pie-chart study-languege-graph">
-              <img src="./pictures/pie chart.jpg" alt="">
+            <div class="pie-chart study-languege-graph" id="studyLanguagePieChart">
+              <!-- <img src="./pictures/pie chart.jpg" alt=""> -->
             </div>
             <div class="pie-chart-index">
-              <img src="./pictures/pie chart index.jpg" alt="">
+              <!-- <img src="./pictures/pie chart index.jpg" alt=""> -->
             </div>
           </div>
         </div>
@@ -87,10 +88,10 @@
           <div class="pie-chart-card content-box">
             <p class="graph-title">学習コンテンツ</p>
             <div class="pie-chart study-contents-graph ">
-              <img src="./pictures/pie chart.jpg" alt="">
+              <!-- <img src="./pictures/pie chart.jpg" alt=""> -->
             </div>
             <div class="pie-chart-index">
-              <img src="./pictures/pie chart index.jpg" alt="">
+              <!-- <img src="./pictures/pie chart index.jpg" alt=""> -->
             </div>
           </div>
         </div>
@@ -117,14 +118,14 @@
 
 
 
-  <div class=" record-modal" id="recordModal">
+  <div class="modal" id="recordModal">
 
     <div class="close-button-container">
-      <a href="">
-        <div class="close-button" id="closeRecordModal">
+      
+        <div class="close-button" id="closeRecordModalBtn">
           <span class="batsu"></span>
         </div>
-      </a>
+      
     </div>
 
 
@@ -142,90 +143,82 @@
 
         <div class="form-content form-study-content">
           <p class="form-content-title">学習コンテンツ（複数選択可）</p>
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="Nyobikou" class="checkbox">
+
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox1" onclick="chebg('cBox1')">
               <span class="checkbox-fontas"></span>
               N予備校
             </label>
-          </div>
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="dotInstall" class="checkbox">
+
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox2" onclick="chebg('cBox2')">
               <span class="checkbox-fontas"></span>
               ドットインストール
             </label>
-          </div>
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="PosseHomework" class="checkbox">
+
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox3" onclick="chebg('cBox3')">
               <span class="checkbox-fontas"></span>
               POSSE課題
             </label>
+            
           </div>
-        </div>
+          
+          
+          <div class="form-content">
+            <p class="form-content-title">学習言語（複数選択可）</p>
 
-
-        <div class="form-content">
-          <p class="form-content-title">学習言語（複数選択可）</p>
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="" class="checkbox">
+            
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox4" onclick="chebg('cBox4')">
               <span class="checkbox-fontas"></span>
               HTML
             </label>
-          </div>
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="" class="checkbox">
+            
+            
+            
+            
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox5" onclick="chebg('cBox5')">
               <span class="checkbox-fontas"></span>
               CSS
             </label>
-          </div>
-
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="" class="checkbox">
+            
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox6" onclick="chebg('cBox6')">
               <span class="checkbox-fontas"></span>
               JavaScript
             </label>
-          </div>
-
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="" class="checkbox">
+            
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox7" onclick="chebg('cBox7')">
               <span class="checkbox-fontas"></span>
               PHP
             </label>
-          </div>
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="" class="checkbox">
+            
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox8" onclick="chebg('cBox8')">
               <span class="checkbox-fontas"></span>
               Laravel
             </label>
-          </div>
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="" class="checkbox">
+            
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox9" onclick="chebg('cBox9')">
               <span class="checkbox-fontas"></span>
               SQL
             </label>
-          </div>
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="" class="checkbox">
+            
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox10" onclick="chebg('cBox10')">
               <span class="checkbox-fontas"></span>
               SHELL
             </label>
-          </div>
-          <div class="checkbox-wrapper">
-            <label class="">
-              <input type="checkbox" name="" id="" class="checkbox">
+            
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="" class="checkbox" id = "cBox11" onclick="chebg('cBox11')">
               <span class="checkbox-fontas"></span>
               情報システム基礎知識（その他）
             </label>
-          </div>
 
         </div>
 
@@ -261,7 +254,7 @@
     </div>
 
 
-    <div class="submit-button">
+    <div class="submit-button" id="submitBtn">
       <p>記録・投稿</p>
     </div>
 
@@ -270,9 +263,9 @@
   </div>
 
 
-  <div class=" submit-finish-modal">
+  <div class=" submit-finish-modal" id="SubmitFinishModal">
     <div class="close-button-container">
-      <div class="close-button">
+      <div class="close-button" id="closeSubmitFinishModalBtn">
         <span class="batsu"></span>
       </div>
     </div>
@@ -292,27 +285,31 @@
   </div>
 
 
+  <div class=" loading-modal" id="loadingModal">
+    <div class="close-button-container">
+      <div class="close-button" id="closeLoadingModalBtn">
+        <span class="batsu"></span>
+      </div>
+    </div>
+    
+    <div class="loading-content">
+      <div class="loading"></div>
+    </div>
+  </div>
+  
+  </div>
 
 
-<!-- クリックしたらモーダルを表示するボタン -->
-<a href="#" class="btn">モーダルウィンドウを表示</a>
+
+
+
 
 <!-- オーバーレイ -->
-<div class="overlay"></div>
-
-<!-- モーダルウィンドウ -->
-<div class="modal">
-  <div class="close">&times</div>
-    <h2>モダルのタイトル</h2>
-    <p>ここにモダルの内容が入ります。ここにモダルの内容が入ります。ここにモダルの内容が入ります。ここにモダルの内容が入ります。ここにモダルの内容が入ります。ここにモダルの内容が入ります。</p>
-</div>
-
-<!-- スクロールで高さを出すためのsectionタグ -->
-<section></section>
+<div class="overlay" id="overlay"></div>
 
 
+<script src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="./js/script.js"></script>
-
 </body>
 
 </html>

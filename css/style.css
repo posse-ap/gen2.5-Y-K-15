@@ -235,19 +235,11 @@ main{
 }
 
 
-/* .modal{
 
-  font-size: 15px;
 
-  background-color: white;
-  margin: 0 auto;
-  width: 900px;
-  
-  margin-bottom: 100px;  仮 */
 
-  /* border-radius: 30px;
-  
-} */
+
+
 
 
 .submit-button p{
@@ -302,22 +294,6 @@ transform: translate(-50%,-50%) rotate(-45deg);
 }
 
 
-.record-modal{
-  display: none;
-  z-index: 2;
-  position: fixed;
-
-
-  font-size: 15px;
-
-  background-color: white;
-  margin: 0 auto;
-  width: 900px;
-  
-  margin-bottom: 100px;  /*仮*/
-
-  border-radius: 30px;
-}
 
 
 
@@ -451,27 +427,7 @@ textarea{
   }
   
   
-.submit-finish-modal{
-  height: 555.5px;
-  background: white;
 
-  position: relative;
-
-  display: none;
-
-
-
-
-  font-size: 15px;
-
-  background-color: white;
-  margin: 0 auto;
-  width: 900px;
-  
-  margin-bottom: 100px;  /*仮*/
-
-  border-radius: 30px;
-}
 
 .submit-finish-content{
   position: absolute;
@@ -518,36 +474,6 @@ textarea{
 
 
 
-
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-}
-
-/* ボタンのデザイン */
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 10px 20px;
-  background: linear-gradient(to right bottom, #FFA500, #FF6347);
-  border-radius: 5px;
-  color: #fff;
-  margin: 20px;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  opacity: .8;
-}
-
 /* オーバーレイ */
 .overlay {
   /* 位置を固定 */
@@ -571,14 +497,18 @@ body {
   /* activeクラスがついたときにオーバーレイを表示する */
   opacity: 1;
   visibility: visible;
+  z-index: 3;
 }
 
-/* モーダルウィンドウ */
-.modal {
-  max-width: 500px;
-  width: 86%;
-  padding: 15px 20px;
-  background: #fff;
+
+.modal{
+  font-size: 15px;
+  background-color: white;
+  margin: 0 auto;
+  width: 900px;
+  margin-bottom: 100px;  /*仮 */
+  border-radius: 30px;
+  
   /* 位置の調整(真ん中に表示) */
   position: fixed;
   top: 50%;
@@ -589,34 +519,114 @@ body {
   visibility: hidden;
   /* 表示の変化にかかる時間 */
   transition: .3s;
+  
 }
 
 /* activeクラスのついたモーダルウィンドウ */
 .modal.active {
   opacity: 1;
   visibility: visible;
+  z-index: 6;
 }
 
 /* モーダルウィンドウ内の閉じるボタン */
-.modal .close {
+/* .modal .close {
   position: absolute;
   top: 10px;
   right: 20px;
   cursor: pointer;
   font-size: 20px;
+} */
+
+
+.submit-finish-modal{
+  height: 555.5px;
+  position: relative;
+  font-size: 15px;
+
+
+
+  background-color: white;
+  margin: 0 auto;
+  width: 900px;
+  margin-bottom: 100px;  /*仮 */
+  border-radius: 30px;
+  
+  /* 位置の調整(真ん中に表示) */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* デフォルトでは非表示にしておく */
+  opacity: 0;
+  visibility: hidden;
+  /* 表示の変化にかかる時間 */
+  /* transition: .3s; */
+  
 }
 
-.modal h2 {
-  font-size: 18px;
-  font-weight: normal;
-  margin-bottom: 10px;
+/* activeクラスのついたモーダルウィンドウ */
+.submit-finish-modal.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 6;
 }
 
-.modal p {
-  font-size: 13px;
+.loading-modal.active{
+  opacity: 1;
+  visibility: visible;
+  z-index: 9;
 }
 
-/* スクロールできる高さを出すための設定 */
-section {
-  height: 200vh;
+
+.loading-modal{
+  height: 555.5px;
+  position: relative;
+  font-size: 15px;
+
+
+
+  background-color: white;
+  margin: 0 auto;
+  width: 900px;
+  margin-bottom: 100px;  /*仮 */
+  border-radius: 30px;
+  
+  /* 位置の調整(真ん中に表示) */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* デフォルトでは非表示にしておく */
+  opacity: 0;
+  visibility: hidden;
+
+  /* 表示の変化にかかる時間 */
+  /* transition: .3s; */
+  
+
+}
+
+.loading{
+  width:160px;
+  height:160px;
+  border-radius:150px;
+  border:15px solid #fff;
+  border-top-color:rgba(0,0,0,0.3);
+  box-sizing:border-box;
+  position:absolute;
+  top:50%;left:50%;
+  margin-top:-80px;
+  margin-left:-80px;
+  animation:loading 1.2s linear infinite;
+  -webkit-animation:loading 1.2s linear infinite;
+}
+@keyframes loading{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+@-webkit-keyframes loading{
+  0%{-webkit-transform:rotate(0deg)}
+  100%{-webkit-transform:rotate(360deg)}
 }
