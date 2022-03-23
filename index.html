@@ -137,7 +137,7 @@
         <div class="form-content">
           <label class="">
             <p class="form-content-title">学習日</p>
-            <input type="text" name="date" id="date" class="input-text-common">
+            <input type="text" name="date"class="input-text-common" id="openCalenderModalBtn">
           </label>
         </div>
 
@@ -195,7 +195,7 @@
               <span class="checkbox-fontas"></span>
               PHP
             </label>
-            
+             
             <label class="checkbox-wrapper">
               <input type="checkbox" name="" class="checkbox" id = "cBox8" onclick="chebg('cBox8')">
               <span class="checkbox-fontas"></span>
@@ -299,6 +299,37 @@
   
   </div>
 
+
+
+
+  <div class="calender-modal" id="calenderModal">
+  
+    <div class="back-button-container">
+      <div class="back-button" id="closeCalenderModalBtn">
+        <p>←</p>
+      </div>
+    </div>
+  
+      <div class="wrapper">
+        <!-- xxxx年xx月を表示 -->
+        <h1 id="clHeader"></h1>
+  
+        <!-- ボタンクリックで月移動 -->
+        <div id="next-prev-button">
+          <button id="prev" onclick="prev()">‹</button>
+          <button id="next" onclick="next()">›</button>
+        </div>
+
+        <!-- カレンダー -->
+        <div id="calendar"></div>
+      </div>
+
+
+      <div class="confirm-button" id="confirmDateBtn">
+        <p>決定</p>
+      </div>
+
+  </div>
 
 
 

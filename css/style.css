@@ -471,7 +471,7 @@ textarea{
   font-size: 20px;
   text-align: center;
   padding: 10px 0px;
-  
+
 
 }
 
@@ -532,22 +532,12 @@ textarea{
   z-index: 6;
 }
 
-/* モーダルウィンドウ内の閉じるボタン */
-/* .modal .close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  cursor: pointer;
-  font-size: 20px;
-} */
 
 
 .submit-finish-modal{
   height: 555.5px;
   position: relative;
   font-size: 15px;
-
-
 
   background-color: white;
   margin: 0 auto;
@@ -575,11 +565,6 @@ textarea{
   z-index: 6;
 }
 
-.loading-modal.active{
-  opacity: 1;
-  visibility: visible;
-  z-index: 9;
-}
 
 
 .loading-modal{
@@ -600,7 +585,7 @@ textarea{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
+  
   /* デフォルトでは非表示にしておく */
   opacity: 0;
   visibility: hidden;
@@ -608,7 +593,13 @@ textarea{
   /* 表示の変化にかかる時間 */
   /* transition: .3s; */
   
+  
+}
 
+.loading-modal.active{
+  opacity: 1;
+  visibility: visible;
+  z-index: 9;
 }
 
 .loading{
@@ -625,6 +616,7 @@ textarea{
   animation:loading 1.2s linear infinite;
   -webkit-animation:loading 1.2s linear infinite;
 }
+
 @keyframes loading{
   0%{transform:rotate(0deg)}
   100%{transform:rotate(360deg)}
@@ -632,4 +624,170 @@ textarea{
 @-webkit-keyframes loading{
   0%{-webkit-transform:rotate(0deg)}
   100%{-webkit-transform:rotate(360deg)}
+}
+
+
+
+
+.calender-modal{
+  font-size: 15px;
+  background-color: white;
+  margin: 0 auto;
+  width: 900px;
+  height: 555.5px;
+
+  margin-bottom: 100px;  /*仮 */
+  border-radius: 30px;
+  
+  /* 位置の調整(真ん中に表示) */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* デフォルトでは非表示にしておく */
+  opacity: 0;
+  visibility: hidden;
+  /* 表示の変化にかかる時間 */
+  transition: .3s;  
+}
+
+/* activeクラスのついたモーダルウィンドウ */
+.calender-modal.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 6;
+}
+
+
+
+.back-button-container{
+  display: flex;
+  justify-content: flex-start;
+  margin: 0px 20px;
+  }
+  
+  .back-button{
+  transform: translate(0%,50%);
+  background-color: #F5F5F8;
+  border-radius: 100px;
+  padding:8px;
+  display: inline-block;
+  /* margin-left: 844px; */
+  }
+
+@charset "utf-8";
+
+/*全体*/
+.wrapper{
+    max-width: 600px;
+    height: 400px; /*仮*/
+    margin: 0 auto;
+    color: #666;
+}
+#clHeader {
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    margin: 1rem 0 0;
+}
+
+/*カレンダー*/
+#calendar {
+    text-align: center;
+    width: 100%;
+}
+table {
+    outline: 2px solid #ddd;
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    color: #000;
+}
+th, td {
+    outline: 1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+
+td:first-child,
+td.holiday{
+    color: red;
+}
+
+
+
+
+
+/*日曜日*/
+/* td:first-child {
+    color: red;
+} */
+/*土曜日*/
+td:last-child {
+    color: blue;
+}
+/*前後月の日付*/
+td.disabled {
+    color: #ccc;
+}
+/*本日*/
+td.today {
+    background-color: #D65E72;
+    color: #fff;
+}
+
+/*ボタン*/
+#next-prev-button {
+    position: relative;
+}
+#next-prev-button button{
+    cursor: pointer;
+    background: #B78D4A;
+    color: #fff;
+    border: 1px solid #B78D4A;
+    border-radius: 4px;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    margin: 1rem 0;
+}
+#next-prev-button button:hover{
+    background-color: #D4BB92;
+    border-color: #D4BB92;
+}
+#prev {
+    float: left;
+}
+#next {
+    float: right;
+}
+
+
+.confirm-button{
+  background: linear-gradient(to right, #1073BD,  #3BCDFE);
+  box-shadow: 0px 5px 15px #1F92D4 ;
+  border-radius: 50px;
+  
+  width: 300px;
+  height: 45px;
+  margin: 20px auto;
+
+  left: 50%;
+  transform: translate(-50%,0);
+
+  /* 中の文字の中央揃え */
+  display: inline-block;
+  position: relative;
+}
+
+.confirm-button p{
+  color: white;
+  font-size: 18px;
+  /* 中央揃え */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
