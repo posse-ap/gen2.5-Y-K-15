@@ -68,6 +68,7 @@
         <div class="study-time-bargraph-container">
           <div class="study-time-bargraph content-box">
             <!-- <img src="./pictures/bargraph.jpg" alt=""> -->
+            <div id="studyTimeBarGraph"></div>
           </div>
         </div>
       </div>
@@ -121,11 +122,11 @@
   <div class="modal" id="recordModal">
 
     <div class="close-button-container">
-      
-        <div class="close-button" id="closeRecordModalBtn">
-          <span class="batsu"></span>
-        </div>
-      
+
+      <div class="close-button" id="closeRecordModalBtn">
+        <span class="batsu"></span>
+      </div>
+
     </div>
 
 
@@ -137,88 +138,88 @@
         <div class="form-content">
           <label class="">
             <p class="form-content-title">学習日</p>
-            <input type="text" name="date"class="input-text-common" id="openCalenderModalBtn">
+            <input type="text" name="date" class="input-text-common" id="openCalenderModalBtn">
           </label>
         </div>
 
         <div class="form-content form-study-content">
           <p class="form-content-title">学習コンテンツ（複数選択可）</p>
 
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox1" onclick="chebg('cBox1')">
-              <span class="checkbox-fontas"></span>
-              N予備校
-            </label>
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox1" onclick="chebg('cBox1')">
+            <span class="checkbox-fontas"></span>
+            N予備校
+          </label>
 
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox2" onclick="chebg('cBox2')">
-              <span class="checkbox-fontas"></span>
-              ドットインストール
-            </label>
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox2" onclick="chebg('cBox2')">
+            <span class="checkbox-fontas"></span>
+            ドットインストール
+          </label>
 
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox3" onclick="chebg('cBox3')">
-              <span class="checkbox-fontas"></span>
-              POSSE課題
-            </label>
-            
-          </div>
-          
-          
-          <div class="form-content">
-            <p class="form-content-title">学習言語（複数選択可）</p>
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox3" onclick="chebg('cBox3')">
+            <span class="checkbox-fontas"></span>
+            POSSE課題
+          </label>
 
-            
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox4" onclick="chebg('cBox4')">
-              <span class="checkbox-fontas"></span>
-              HTML
-            </label>
-            
-            
-            
-            
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox5" onclick="chebg('cBox5')">
-              <span class="checkbox-fontas"></span>
-              CSS
-            </label>
-            
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox6" onclick="chebg('cBox6')">
-              <span class="checkbox-fontas"></span>
-              JavaScript
-            </label>
-            
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox7" onclick="chebg('cBox7')">
-              <span class="checkbox-fontas"></span>
-              PHP
-            </label>
-             
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox8" onclick="chebg('cBox8')">
-              <span class="checkbox-fontas"></span>
-              Laravel
-            </label>
-            
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox9" onclick="chebg('cBox9')">
-              <span class="checkbox-fontas"></span>
-              SQL
-            </label>
-            
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox10" onclick="chebg('cBox10')">
-              <span class="checkbox-fontas"></span>
-              SHELL
-            </label>
-            
-            <label class="checkbox-wrapper">
-              <input type="checkbox" name="" class="checkbox" id = "cBox11" onclick="chebg('cBox11')">
-              <span class="checkbox-fontas"></span>
-              情報システム基礎知識（その他）
-            </label>
+        </div>
+
+
+        <div class="form-content">
+          <p class="form-content-title">学習言語（複数選択可）</p>
+
+
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox4" onclick="chebg('cBox4')">
+            <span class="checkbox-fontas"></span>
+            HTML
+          </label>
+
+
+
+
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox5" onclick="chebg('cBox5')">
+            <span class="checkbox-fontas"></span>
+            CSS
+          </label>
+
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox6" onclick="chebg('cBox6')">
+            <span class="checkbox-fontas"></span>
+            JavaScript
+          </label>
+
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox7" onclick="chebg('cBox7')">
+            <span class="checkbox-fontas"></span>
+            PHP
+          </label>
+
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox8" onclick="chebg('cBox8')">
+            <span class="checkbox-fontas"></span>
+            Laravel
+          </label>
+
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox9" onclick="chebg('cBox9')">
+            <span class="checkbox-fontas"></span>
+            SQL
+          </label>
+
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox10" onclick="chebg('cBox10')">
+            <span class="checkbox-fontas"></span>
+            SHELL
+          </label>
+
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="" class="checkbox" id="cBox11" onclick="chebg('cBox11')">
+            <span class="checkbox-fontas"></span>
+            情報システム基礎知識（その他）
+          </label>
 
         </div>
 
@@ -237,11 +238,11 @@
         <div class="form-content">
           <label class="">
             <p class="form-content-title">Twitter用コメント</p>
-            <textarea name="" id="" cols="50" rows="10" class="input-text-common"></textarea>
+            <textarea name="" id="commentForTwitter" cols="50" rows="10" class="input-text-common"></textarea>
           </label>
           <div class="button-to-share">
-            <label>
-              <input type="checkbox" name="" id="" class="checkbox-twitter">
+            <label id="twitterShareCheckbox">
+              <input type="checkbox" name="" id="twitterCheckbox" class="checkbox-twitter">
               <span class="checkbox-fontas-twitter"></span>
               Twitterにシェアする
             </label>
@@ -254,10 +255,15 @@
     </div>
 
 
-    <div class="submit-button" id="submitBtn">
+    <a class="submit-button" id="submitBtn" href="">
       <p>記録・投稿</p>
-    </div>
+    </a>
 
+
+    
+
+
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
   </div>
@@ -269,7 +275,7 @@
         <span class="batsu"></span>
       </div>
     </div>
-    
+
     <div class="submit-finish-content">
       <p class="gj-message">AWESOME!</p>
       <div class="submit-finish-checkmark">
@@ -281,7 +287,7 @@
         <p class="finish-message-text">完了しました</p>
       </div>
     </div>
-    
+
   </div>
 
 
@@ -291,43 +297,43 @@
         <span class="batsu"></span>
       </div>
     </div>
-    
+
     <div class="loading-content">
       <div class="loading"></div>
     </div>
   </div>
-  
+
   </div>
 
 
 
 
   <div class="calender-modal" id="calenderModal">
-  
+
     <div class="back-button-container">
       <div class="back-button" id="closeCalenderModalBtn">
         <p>←</p>
       </div>
     </div>
-  
-      <div class="wrapper">
-        <!-- xxxx年xx月を表示 -->
-        <h1 id="clHeader"></h1>
-  
-        <!-- ボタンクリックで月移動 -->
-        <div id="next-prev-button">
-          <button id="prev" onclick="prev()">‹</button>
-          <button id="next" onclick="next()">›</button>
-        </div>
 
-        <!-- カレンダー -->
-        <div id="calendar"></div>
+    <div class="wrapper">
+      <!-- xxxx年xx月を表示 -->
+      <h1 id="clHeader"></h1>
+
+      <!-- ボタンクリックで月移動 -->
+      <div id="next-prev-button">
+        <button id="prev" onclick="prev()">‹</button>
+        <button id="next" onclick="next()">›</button>
       </div>
 
+      <!-- カレンダー -->
+      <div id="calendar"></div>
+    </div>
 
-      <div class="confirm-button" id="confirmDateBtn">
-        <p>決定</p>
-      </div>
+
+    <div class="confirm-button" id="confirmDateBtn">
+      <p>決定</p>
+    </div>
 
   </div>
 
@@ -335,12 +341,12 @@
 
 
 
-<!-- オーバーレイ -->
-<div class="overlay" id="overlay"></div>
+  <!-- オーバーレイ -->
+  <div class="overlay" id="overlay"></div>
 
 
-<script src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="./js/script.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

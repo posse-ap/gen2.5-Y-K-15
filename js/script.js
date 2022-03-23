@@ -1,4 +1,87 @@
+  // 棒グラフ
+  // 参考：https://www.petitmonte.com/javascript/chart_columnchart.html
+  // name:visualization(可視化),version:バージョン(1),packages:パッケージ(corechart)
+  google.load('visualization', '1', {'packages':['corechart']});     
+
+  // グラフを描画する為のコールバック関数を指定
+  google.setOnLoadCallback(drawChart);
+  // グラフの描画   
+  function drawChart() {
+    // 配列からデータの生成
+    var data = google.visualization.arrayToDataTable([
+      ['日付', '時間'],
+      [1, 3], // 日付のところのデータを数値にしてなかったから横軸のticksが効かなかった。
+      [2, 4],            
+      [3, 5],
+      [4, 3], 
+      [5, 0],
+      [6, 0],
+      [7, 4],
+      [8, 2],
+      [9, 2],
+      [10, 8],
+      [11, 8],
+      [12, 2],
+      [13, 2],
+      [14, 4],
+      [15, 7],
+      [16, 4],
+      [17, 4],
+      [18, 3],
+      [19, 3],
+      [20, 3],
+      [21, 2],
+      [22, 2],
+      [23, 6],
+      [24, 2],
+      [25, 2],
+      [26, 1],
+      [27, 1],
+      [28, 1],
+      [29, 7],
+      [30, 8],
+    ]);
+ 
+    // オプションの設定
+    // 参考：http://yohshiy.blog.fc2.com/blog-entry-195.html
+    var options = {
+      width:500,
+      height:310,
+      'chartArea': {'width': '90%', 'height': '80%'},
+      color:['#3CCEFE'],
+      legend:'none',
+      vAxis: {
+        minValue: 0,
+        ticks: [0,2,4,6,8],
+        gridlines: {
+          color: 'transparent'
+        },
+        format:'#h'
+      },
+      hAxis: {
+        ticks: [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,],
+        gridlines: {
+          color: 'transparent'
+        },
+        
+      }
+
+
+
+    };
+    
+
+
+    // 指定されたIDの要素に棒グラフを作成
+    var chart = new google.visualization.ColumnChart(document.getElementById('studyTimeBarGraph'));
+ 
+    // グラフの描画
+    chart.draw(data, options);
+  }
+
+
 //学習言語の円グラフ
+//参考：ドットインストール
 (function() {
 
   function drawChart() {
@@ -7,10 +90,9 @@
 
     var options = {
       // title: 'My Chart',
-      legend :none,
-      // legend :{ position: 'bottom'},
-      width: 300,
-      height: 400,
+      legend: 'none',
+      width: 220,
+      height: 220,
       backgroundColor: '#fff',
       colors: [
         '#3CCEFE',
@@ -23,6 +105,8 @@
         '#3105C0'
       ],
       pieHole: 0.4, 
+      'chartArea': {'width': '95%', 'height': '95%'}
+
     };
     var chart = new google.visualization.PieChart(studyLanguagePieChart);
 
@@ -48,6 +132,9 @@
   google.charts.setOnLoadCallback(drawChart);
 })();
 
+
+
+
 // 学習コンテンツのえんぐらふ
 (function() {
 
@@ -57,8 +144,9 @@
 
     var options = {
       // title: 'My Chart',
-      width: 500,
-      height: 200,
+      legend: 'none',
+      width: 220,
+      height: 220,
       backgroundColor: '#fff',
       colors: [
         '#0345EC',
@@ -66,6 +154,7 @@
         '#20BDDE',
       ],
       pieHole: 0.4, 
+      'chartArea': {'width': '95%', 'height': '95%'}
     };
     var chart = new google.visualization.PieChart(studyContentsPieChart);
 
@@ -97,7 +186,7 @@ function chebg(chkID){
   else{Myid.parentNode.style.backgroundColor = '#F5F5F8';}
   }
 
-
+  
 // 投稿画面のモーダル  
 // ボタン、モダル、モダルの閉じるボタン、オーバーレイを変数に格納
 let overlay = document.getElementById('overlay');
@@ -110,12 +199,13 @@ let closeRecordModalBtn = document.getElementById('closeRecordModalBtn');
 let closeLoadingModalBtn = document.getElementById('closeLoadingModalBtn');
 let closeSubmitFinishModalBtn = document.getElementById('closeSubmitFinishModalBtn');
 
-
 let openCalenderModalBtn = document.getElementById('openCalenderModalBtn');
 let calenderModal = document.getElementById('calenderModal');
 let confirmDateBtn = document.getElementById('confirmDateBtn');
 let closeCalenderModalBtn = document.getElementById('closeCalenderModalBtn');
 
+let twitterCheckbox = document.getElementById('twitterCheckbox');
+let commentForTwitter = document.getElementById('commentForTwitter');
 
 
 
@@ -166,17 +256,43 @@ closeCalenderModalBtn.addEventListener('click', function(){
 });
 
 
-// submitボタンをクリックしたら、モダルとオーバーレイに.activeを付け→３秒後に完了画面出す。
+
+// モーダル内の記録・投稿ボタン押したとき
 submitBtn.addEventListener('click', function(e){
   // aタグのデフォルトの機能を停止する
   e.preventDefault();
-  // ローディングと完了のモーダルにactiveクラスを付与する
-  loadingModal.classList.add('active');
-  SubmitFinishModal.classList.add('active');
-
-  setTimeout(() => {
-    loadingModal.classList.remove('active');
-  }, 3000);  
+  if(twitterCheckbox.checked == true){
+    // （チッターのチェックボックスがチェックされているとき）→記録・投稿ボタンでチッターに飛ぶ
+    var s, url;
+    s = commentForTwitter.value + " %23POSSE学習記録 " + "posse-ap.com";
+    // ハッシュタグ生成のためにURLエンコード
+    // 参考：https://tech-unlimited.com/urlencode.html
+    url = document.location.href;
+    if (s != "") {
+      if (s.length > 140) {
+  			//文字数制限
+        alert("テキストが140字を超えています");
+      } else {
+  			//投稿画面を開く
+        url = "http://twitter.com/share?url=" 
+        // + escape(url)
+        // + "&text=" // これまでいたurlを表示する。本番環境ならこれの方がいいと思った。いまは見栄え重視でPOSSEのホームページにするためにコメントアウトにした。
+        + s;
+        window.open(url,"_blank");
+        // 新しいタブを開き、ページを表示
+        // 参考：https://qiita.com/shuntaro_tamura/items/99adbe51132e0fb3c9e9
+      }
+    }
+  }
+  else{
+    // (チッターのチェックボックスがチェックされてないとき)→submitボタンをクリックしたら、モダルとオーバーレイに.activeを付け→３秒後に完了画面出す。
+    // ローディングと完了のモーダルにactiveクラスを付与する
+    loadingModal.classList.add('active');
+    SubmitFinishModal.classList.add('active');
+    setTimeout(() => {
+      loadingModal.classList.remove('active');
+    }, 3000);  
+  }
 });  
 
 // ローディングのモーダルの閉じるボタンを押したら、ローディングモダルと、完了モーダルと、オーバーレイのactiveクラスを外す
@@ -193,7 +309,6 @@ closeSubmitFinishModalBtn.addEventListener('click', function(){
   SubmitFinishModal.classList.remove('active');
   recordModal.classList.remove('active');
 });  
-
 
 
 
@@ -341,13 +456,8 @@ function isHoliday(year, month, day) {
 
 confirmDateBtn.addEventListener('click',
 function(){
-
   overlay.classList.remove('active')
   calenderModal.classList.remove('active');
-
-
-
-  
 }
 )
 
