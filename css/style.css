@@ -1,10 +1,9 @@
 body{
-  /* width: 1000px; */
-
   background-color: #F5F5F8;
-
- 
-
+  max-width: 1500px;
+  min-width: 970px;
+  /*↑仮*/
+  height: 100%;
 }
 
 header{
@@ -13,12 +12,8 @@ header{
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-
   background-color: white;
-
   box-shadow: 0px 0px 5px lightgray;
-
-
 }
 
 .header-left{
@@ -31,7 +26,6 @@ header{
 .header-logo{
   height: 100%;
   padding: 18px 0px;
-
 }
 
 .header-logo img{
@@ -46,22 +40,23 @@ header{
 .header-right{
   height: 100%;
   padding: 10px 40px 10px 40px;
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
-
+  align-items: center;
 }
 
 .header-right-button{
   background: linear-gradient(to right, #1073BD,  #3BCDFE);
   color: white;
-  
   padding: 10px 40px ;
   /* height: 44px; */
   border-radius: 50px;
   box-shadow: 0px 5px 15px #1F92D4 ;
 }
 
+.header-right-button p{
+  font-size: ;
+}
 
 main{
   width: 100%;
@@ -73,7 +68,6 @@ main{
   flex-direction: row;
   height: 500px;
 }
-
 
 .content-box{
   /* margin: 10px; */
@@ -90,23 +84,19 @@ main{
 }
 
 /* 左上の時間数表示 */
-
 .study-time-container{
   display: flex;
   flex-direction: row;
-
   height: 30%;
 }
 
 .study-time-card {
   width: 33.33%;
-
   padding: 10px;
 }
 
 .study-time-card div{
   height: 100%;
-
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -134,7 +124,6 @@ main{
 }
 
 /* 左下の棒グラフ */
-
 .study-time-bargraph-container{
   padding: 10px;
   height: 70%;
@@ -145,12 +134,10 @@ main{
   height: 100%;
 }
 
-.study-time-bargraph img{
-  /* width: 100%; */
+#studyTimeBarGraph{
   height: 100%;
+  width: 100%;
 }
-
-
 
 .main-right{
   display: flex;
@@ -160,7 +147,6 @@ main{
 }
 
 /* 右側の円グラフ */
-
 .pie-chart-wrapper{
   padding: 10px;
   height: 100%;
@@ -171,7 +157,6 @@ main{
   height: 100%;
 }
 
-
 .graph-title{
   padding: 20px;
   font-size: 20px;
@@ -179,37 +164,17 @@ main{
   font-weight: bold;
 }
 
-
-.study-languege-graph {
-  
-}
-
 .pie-chart{
   padding: 10px;
-
   height: 50%;
-}
-
-.pie-chart img{
-  /* object-fit: contain; */
-  height: 100%;
-  width: 100%;
 }
 
 .pie-chart-index{
   padding: 10px;
-  
   height: 37%;
 }
 
-.pie-chart-index img{
-  /* object-fit: contain; */
-  height: 100%;
-  
-  width: 100%;
-}
-
-
+/* 下の年月変更ボタン */
 .change-month{
   display: flex;
   justify-content: space-around;
@@ -234,25 +199,9 @@ main{
   font-weight: bold;
 }
 
+/* モーダル関係の部品 */
 
-
-
-
-
-
-
-
-.submit-button p{
-  color: white;
-  font-size: 18px;
-  /* 中央揃え */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-
-}
-
+/* 閉じるボタン */
 .close-button-container{
 display: flex;
 justify-content: flex-end;
@@ -265,7 +214,6 @@ background-color: #F5F5F8;
 border-radius: 100px;
 padding:8px;
 display: inline-block;
-/* margin-left: 844px; */
 }
 
 .batsu {
@@ -293,23 +241,16 @@ transform: translate(-50%,-50%) rotate(45deg);
 transform: translate(-50%,-50%) rotate(-45deg);
 }
 
-
-
-
-
+/* 記録モーダルの中身に関係する部品 */
 .modal-forms{
   display: flex;
   height: 430px;
 }
 
-
 .form-left,.form-right{
   margin: 0 20px;
   width: 410px;
   height: 100%;
-
-
-
 }
 
 .form-left{
@@ -320,16 +261,14 @@ transform: translate(-50%,-50%) rotate(-45deg);
   padding-right: 36px;
 }
 
-
-
-
 .form-content{
   padding: 29px 0px 0px 0px;
 }
 .form-content-title{
   margin-bottom: 5px;
 }
-/* テキストボックス関係 */
+
+/* 記録モーダルのテキストボックス関係 */
 .input-text-common{
   background-color: #F5F5F8;
   border-radius: 10px;
@@ -337,8 +276,7 @@ transform: translate(-50%,-50%) rotate(-45deg);
   padding: 15px 20px;
 }
 
-
-/* チェックボックス */
+/* 記録モーダルのチェックボックス関係 */
 .checkbox-wrapper{
   background-color: #F5F5F8;
   display: inline-block;
@@ -346,11 +284,11 @@ transform: translate(-50%,-50%) rotate(-45deg);
   padding: 8px;
   margin: 4px;
 }
-/*参考 https://web-tsuku.life/fontawesome-checkbox-design/ */
+
+/*チェックボックスのデザイン変更 参考:https://web-tsuku.life/fontawesome-checkbox-design/ */
 .checkbox {
   display: none;
 }
-
 .checkbox-fontas {
   position: relative;
   vertical-align: middle;
@@ -367,21 +305,23 @@ transform: translate(-50%,-50%) rotate(-45deg);
 }
 
 
-
-
+/* Twitterシェア関係 */
 /* Twitter用コメント */
 textarea{
   resize: none;
   width:374px;
   height:235px;
-
 }
 
 /* twitterシェアのチェックボックス */
+/*シェアボタン  */
+.button-to-share{
+  margin-top: 10px;
+}
+
 .checkbox-twitter {
   display: none;
 }
-
 .checkbox-fontas-twitter {
   position: relative;
   vertical-align: middle;
@@ -397,57 +337,48 @@ textarea{
   color: #0F71BD;
 }
 
-.button-to-share{
-  margin-top: 10px;
+/* 記録モーダル内の記録・投稿(提出)ボタン */
+.submit-button{
+  background: linear-gradient(to right, #1073BD,  #3BCDFE);
+  box-shadow: 0px 5px 15px #1F92D4 ;
+  border-radius: 50px;
+  width: 300px;
+  height: 45px;
+  margin: 20px 0px;
+  /* ボタンそのものの中央ぞろえ */
+  left: 50%;
+  transform: translate(-50%,0);
+  /* 中の文字の中央揃え */
+  display: inline-block;
+  position: relative;
+}
+.submit-button p{
+  color: white;
+  font-size: 18px;
+  /* 中央揃え */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 
-
-  
-  .submit-button{
-    
-    background: linear-gradient(to right, #1073BD,  #3BCDFE);
-    box-shadow: 0px 5px 15px #1F92D4 ;
-    border-radius: 50px;
-    
-    width: 300px;
-    height: 45px;
-    margin: 20px auto;
-
-
-
-
-    left: 50%;
-    transform: translate(-50%,0);
-
-
-    /* 中の文字の中央揃え */
-    display: inline-block;
-    position: relative;
-  }
-  
-  
-
-
+/* 提出完了モーダルの中身 */
 .submit-finish-content{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-
 }
-
 .gj-message{
   color: #C5E174;
   font-size: 25px;
   text-align: center;
 }
-
+/* 完了のチェックマーク */
 .submit-finish-checkmark{
   text-align: center;
 }
-
-/* 完了のチェックマーク */
 .checkbox-finish {
   display: none;
 }
@@ -466,18 +397,16 @@ textarea{
   color: #C5E174;
 }
 
+/*完了メッセージ  */
 .finish-message-text{
   color: black;
   font-size: 20px;
   text-align: center;
   padding: 10px 0px;
-
-
 }
 
 
-
-/* オーバーレイ */
+/* モーダル出現時のオーバーレイ */
 .overlay {
   /* 位置を固定 */
   position: fixed;
@@ -494,7 +423,6 @@ textarea{
   /* 表示する際の変化の所要時間 */
   transition: .3s;
 }
-
 /* activeクラスのついたオーバーレイ */
 .overlay.active {
   /* activeクラスがついたときにオーバーレイを表示する */
@@ -503,7 +431,7 @@ textarea{
   z-index: 3;
 }
 
-
+/* 記録モーダル */
 .modal{
   font-size: 15px;
   background-color: white;
@@ -511,7 +439,6 @@ textarea{
   width: 900px;
   margin-bottom: 100px;  /*仮 */
   border-radius: 30px;
-  
   /* 位置の調整(真ん中に表示) */
   position: fixed;
   top: 50%;
@@ -522,86 +449,42 @@ textarea{
   visibility: hidden;
   /* 表示の変化にかかる時間 */
   transition: .3s;
-  
 }
-
-/* activeクラスのついたモーダルウィンドウ */
+/* activeクラスのついた記録モーダル */
 .modal.active {
   opacity: 1;
   visibility: visible;
   z-index: 6;
 }
 
-
-
-.submit-finish-modal{
-  height: 555.5px;
-  position: relative;
-  font-size: 15px;
-
-  background-color: white;
-  margin: 0 auto;
-  width: 900px;
-  margin-bottom: 100px;  /*仮 */
-  border-radius: 30px;
-  
-  /* 位置の調整(真ん中に表示) */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* デフォルトでは非表示にしておく */
-  opacity: 0;
-  visibility: hidden;
-  /* 表示の変化にかかる時間 */
-  /* transition: .3s; */
-  
-}
-
-/* activeクラスのついたモーダルウィンドウ */
-.submit-finish-modal.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 6;
-}
-
-
-
+/* ローディングモーダル */
 .loading-modal{
   height: 555.5px;
   position: relative;
   font-size: 15px;
-
-
-
   background-color: white;
   margin: 0 auto;
   width: 900px;
   margin-bottom: 100px;  /*仮 */
   border-radius: 30px;
-  
   /* 位置の調整(真ん中に表示) */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
   /* デフォルトでは非表示にしておく */
   opacity: 0;
   visibility: hidden;
-
   /* 表示の変化にかかる時間 */
   /* transition: .3s; */
-  
-  
 }
-
+/* activeクラスのついたローディングモーダル */
 .loading-modal.active{
   opacity: 1;
   visibility: visible;
   z-index: 9;
 }
-
+/* ローディングのクルクル */
 .loading{
   width:160px;
   height:160px;
@@ -616,7 +499,6 @@ textarea{
   animation:loading 1.2s linear infinite;
   -webkit-animation:loading 1.2s linear infinite;
 }
-
 @keyframes loading{
   0%{transform:rotate(0deg)}
   100%{transform:rotate(360deg)}
@@ -626,19 +508,16 @@ textarea{
   100%{-webkit-transform:rotate(360deg)}
 }
 
-
-
-
-.calender-modal{
+/* 完了モーダル */
+.submit-finish-modal{
+  height: 555.5px;
+  position: relative;
   font-size: 15px;
   background-color: white;
   margin: 0 auto;
   width: 900px;
-  height: 555.5px;
-
   margin-bottom: 100px;  /*仮 */
   border-radius: 30px;
-  
   /* 位置の調整(真ん中に表示) */
   position: fixed;
   top: 50%;
@@ -648,78 +527,92 @@ textarea{
   opacity: 0;
   visibility: hidden;
   /* 表示の変化にかかる時間 */
-  transition: .3s;  
+  /* transition: .3s; */
 }
-
-/* activeクラスのついたモーダルウィンドウ */
-.calender-modal.active {
+/* activeクラスのついた完了モーダル */
+.submit-finish-modal.active {
   opacity: 1;
   visibility: visible;
   z-index: 6;
 }
 
-
-
+/* カレンダーモーダル */
+.calender-modal{
+  font-size: 15px;
+  background-color: white;
+  margin: 0 auto;
+  width: 900px;
+  height: 555.5px;
+  margin-bottom: 100px;  /*仮 */
+  border-radius: 30px;
+  /* 位置の調整(真ん中に表示) */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* デフォルトでは非表示にしておく */
+  opacity: 0;
+  visibility: hidden;
+  /* 表示の変化にかかる時間 */
+  /* transition: .3s;   */
+}
+/* activeクラスのついたカレンダーモーダル */
+.calender-modal.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 6;
+}
+/* カレンダーモーダルの戻る（←）ボタン */
 .back-button-container{
   display: flex;
   justify-content: flex-start;
   margin: 0px 20px;
-  }
-  
-  .back-button{
-  transform: translate(0%,50%);
-  background-color: #F5F5F8;
-  border-radius: 100px;
-  padding:8px;
-  display: inline-block;
-  /* margin-left: 844px; */
-  }
+}
+.back-button{
+transform: translate(0%,50%);
+background-color: #F5F5F8;
+border-radius: 100px;
+padding:8px;
+display: inline-block;
+}
 
-/* @charset "utf-8"; */
-
-/*全体*/
+/*カレンダーモーダルの中身全体*/
 .wrapper{
-    max-width: 600px;
-    height: 400px; /*仮*/
-    margin: 0 auto;
-    color: #666;
+  max-width: 600px;
+  height: 400px; /*仮*/
+  margin: 0 auto;
+  color: #666;
 }
 #clHeader {
-    text-align: center;
-    font-size: 24px;
-    width: 100%;
-    margin: 1rem 0 0;
+  text-align: center;
+  font-size: 24px;
+  width: 100%;
+  margin: 1rem 0 0;
 }
-
 /*カレンダー*/
 #calendar {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 table {
-    outline: 2px solid #ddd;
-    border-collapse: collapse;
-    width: 100%;
+  outline: 2px solid #ddd;
+  border-collapse: collapse;
+  width: 100%;
 }
 th {
-    color: #000;
+  color: #000;
 }
 th, td {
-    outline: 1px solid #ddd;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
+  outline: 1px solid #ddd;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
 }
-
 
 td:first-child,
 td.holiday{
     color: red;
 }
-
-
-
-
 
 /*日曜日*/
 /* td:first-child {
@@ -764,24 +657,20 @@ td.today {
     float: right;
 }
 
-
+/* カレンダモーダルの決定ボタン */
 .confirm-button{
   background: linear-gradient(to right, #1073BD,  #3BCDFE);
   box-shadow: 0px 5px 15px #1F92D4 ;
   border-radius: 50px;
-  
   width: 300px;
   height: 45px;
-  margin: 20px auto;
-
+  margin: 20px 0px;
   left: 50%;
   transform: translate(-50%,0);
-
   /* 中の文字の中央揃え */
   display: inline-block;
   position: relative;
 }
-
 .confirm-button p{
   color: white;
   font-size: 18px;

@@ -41,17 +41,19 @@
       [29, 7],
       [30, 8],
     ]);
- 
+
     // オプションの設定
     // 参考：http://yohshiy.blog.fc2.com/blog-entry-195.html
     var options = {
-      width:500,
-      height:310,
+      width: '100%',
+      height: '100%',
+      // width:500,
+      // height:310,
       'chartArea': {'width': '90%', 'height': '80%'},
       color:['#3CCEFE'],
       legend:'none',
       vAxis: {
-        minValue: 0,
+        // minValue: 0,
         ticks: [0,2,4,6,8],
         gridlines: {
           color: 'transparent'
@@ -65,25 +67,25 @@
         },
         
       }
-
-
-
     };
     
-
-
     // 指定されたIDの要素に棒グラフを作成
     var chart = new google.visualization.ColumnChart(document.getElementById('studyTimeBarGraph'));
- 
+
     // グラフの描画
     chart.draw(data, options);
-  }
 
+    
+    $(window).resize(function(){
+      console.log('リサイズ')
+      chart.draw(data, options);
+    });
+
+  }
 
 //学習言語の円グラフ
 //参考：ドットインストール
 (function() {
-
   function drawChart() {
     var studyLanguagePieChart = document.getElementById('studyLanguagePieChart');
     var data;
@@ -91,9 +93,11 @@
     var options = {
       // title: 'My Chart',
       legend: 'none',
-      width: 220,
-      height: 220,
-      backgroundColor: '#fff',
+      width: '100%',
+      height: '100%',
+      // width: 220,
+      // height: 220,
+      backgroundColor: '#ccc',
       colors: [
         '#3CCEFE',
         '#0F71BD',
@@ -105,8 +109,7 @@
         '#3105C0'
       ],
       pieHole: 0.4, 
-      'chartArea': {'width': '95%', 'height': '95%'}
-
+      'chartArea': {'width': '95%', 'height': '95%'},
     };
     var chart = new google.visualization.PieChart(studyLanguagePieChart);
 
@@ -126,18 +129,21 @@
 
     chart.draw(data, options);
 
+
+    $(window).resize(function(){
+      console.log('リサイズ')
+      chart.draw(data, options);
+    });
+
   }
 
   google.charts.load('current', {packages: ['corechart']});
   google.charts.setOnLoadCallback(drawChart);
 })();
 
-
-
-
-// 学習コンテンツのえんぐらふ
+// 学習コンテンツの円グラフ
+//参考：ドットインストール
 (function() {
-
   function drawChart() {
     var studyLanguagePieChart = document.getElementById('studyLanguagePieChart');
     var data;
@@ -145,9 +151,11 @@
     var options = {
       // title: 'My Chart',
       legend: 'none',
-      width: 220,
-      height: 220,
-      backgroundColor: '#fff',
+      width: '100%',
+      height: '100%',
+      // width: 220,
+      // height: 220,
+      backgroundColor: '#ccc',
       colors: [
         '#0345EC',
         '#0F71BD',
@@ -164,51 +172,45 @@
     data.addRow(['N予備校', 40]);
     data.addRow(['ドットインストール', 20]);
     data.addRow(['課題', 40]);
-
     // データ元
-  
+    // http://posse-task.anti-pattern.co.jp/1st-work/study_contents.json
 
     chart.draw(data, options);
+
+    $(window).resize(function(){
+      console.log('リサイズ')
+      chart.draw(data, options);
+    });
 
   }
 
   google.charts.load('current', {packages: ['corechart']});
   google.charts.setOnLoadCallback(drawChart);
+  
 })();
 
-// チェックボックスの背景の色変更
-// 参考：http://javascript123.seesaa.net/article/107029180.html
-function chebg(chkID){
-  Myid=document.getElementById(chkID);
-  if(Myid.checked == true){
-  Myid.parentNode.style.backgroundColor = '#E7F5FF';  
-  }
-  else{Myid.parentNode.style.backgroundColor = '#F5F5F8';}
-  }
 
+
+// ------------------------------------------------------------------------//
+// モーダル関連
+  // ボタン、モダル、モダルの閉じるボタン、オーバーレイを変数に格納
+  let overlay = document.getElementById('overlay');
+  let openRecordModalBtn = document.getElementById('openRecordModalBtn');
+  let submitBtn = document.getElementById('submitBtn');
+  let recordModal = document.getElementById('recordModal');
+  let loadingModal = document.getElementById('loadingModal');
+  let SubmitFinishModal = document.getElementById('SubmitFinishModal');
+  let closeRecordModalBtn = document.getElementById('closeRecordModalBtn');
+  let closeLoadingModalBtn = document.getElementById('closeLoadingModalBtn');
+  let closeSubmitFinishModalBtn = document.getElementById('closeSubmitFinishModalBtn');
+  let openCalenderModalBtn = document.getElementById('openCalenderModalBtn');
+  let calenderModal = document.getElementById('calenderModal');
+  let confirmDateBtn = document.getElementById('confirmDateBtn');
+  let closeCalenderModalBtn = document.getElementById('closeCalenderModalBtn');
+  let twitterCheckbox = document.getElementById('twitterCheckbox');
+  let commentForTwitter = document.getElementById('commentForTwitter');
   
-// 投稿画面のモーダル  
-// ボタン、モダル、モダルの閉じるボタン、オーバーレイを変数に格納
-let overlay = document.getElementById('overlay');
-let openRecordModalBtn = document.getElementById('openRecordModalBtn');
-let submitBtn = document.getElementById('submitBtn');
-let recordModal = document.getElementById('recordModal');
-let loadingModal = document.getElementById('loadingModal');
-let SubmitFinishModal = document.getElementById('SubmitFinishModal');
-let closeRecordModalBtn = document.getElementById('closeRecordModalBtn');
-let closeLoadingModalBtn = document.getElementById('closeLoadingModalBtn');
-let closeSubmitFinishModalBtn = document.getElementById('closeSubmitFinishModalBtn');
-
-let openCalenderModalBtn = document.getElementById('openCalenderModalBtn');
-let calenderModal = document.getElementById('calenderModal');
-let confirmDateBtn = document.getElementById('confirmDateBtn');
-let closeCalenderModalBtn = document.getElementById('closeCalenderModalBtn');
-
-let twitterCheckbox = document.getElementById('twitterCheckbox');
-let commentForTwitter = document.getElementById('commentForTwitter');
-
-
-
+// 記録画面のモーダル  
 // ボタンをクリックしたら、モダルとオーバーレイに.activeを付ける
 openRecordModalBtn.addEventListener('click', function(e){
   // aタグのデフォルトの機能を停止する
@@ -227,16 +229,12 @@ closeRecordModalBtn.addEventListener('click', function(){
 // オーバーレイをクリックしたら、モダルとオーバーレイのactiveクラスを外す
 //overlayクリックする系はこれだけでいい
 overlay.addEventListener('click', function() {
-
-  console.log('オーバーレイが押されました。');
-
   overlay.classList.remove('active');
   // 順番これ
   recordModal.classList.remove('active');
   loadingModal.classList.remove('active');
   SubmitFinishModal.classList.remove('active');
   calenderModal.classList.remove('active');
-
 });  
 
 // カレンダーモーダルの起動
@@ -245,17 +243,21 @@ openCalenderModalBtn.addEventListener('click',function(e){
     // aタグのデフォルトの機能を停止する
     e.preventDefault();
     // モーダルとオーバーレイにactiveクラスを付与する
-
     calenderModal.classList.add('active');
-
 });
+
+// カレンダーモーダルで決定を押したとき。
+confirmDateBtn.addEventListener('click',
+function(){
+  overlay.classList.remove('active')
+  calenderModal.classList.remove('active');
+}
+)
 
 // 戻るボタンを押したとき、カレンダーもーだうが消える
 closeCalenderModalBtn.addEventListener('click', function(){
   calenderModal.classList.remove('active');
 });
-
-
 
 // モーダル内の記録・投稿ボタン押したとき
 submitBtn.addEventListener('click', function(e){
@@ -301,8 +303,7 @@ closeLoadingModalBtn.addEventListener('click', function(){
   loadingModal.classList.remove('active');
   SubmitFinishModal.classList.remove('active');
   recordModal.classList.remove('active');
-});  
-
+});
 // 完了モダルの閉じるボタンをクリックしたら、モダルとオーバーレイのactiveクラスを外す
 closeSubmitFinishModalBtn.addEventListener('click', function(){
   overlay.classList.remove('active');
@@ -310,10 +311,21 @@ closeSubmitFinishModalBtn.addEventListener('click', function(){
   recordModal.classList.remove('active');
 });  
 
+// ------------------------------------------------------------------------//
 
+// チェックボックスの背景の色変更
+// 参考：http://javascript123.seesaa.net/article/107029180.html
+function chebg(chkID){
+  Myid=document.getElementById(chkID);
+  if(Myid.checked == true){
+  Myid.parentNode.style.backgroundColor = '#E7F5FF';  
+  }
+  else{Myid.parentNode.style.backgroundColor = '#F5F5F8';}
+  }
+
+  // ----------------------------------------------------------------------//
 
 // カレンダー↓↓
-
 const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const today = new Date();
 // 月末だとずれる可能性があるため、1日固定で取得
@@ -348,7 +360,6 @@ function showProcess(date) {
     var year = date.getFullYear();
     var month = date.getMonth(); // 0始まり
     document.querySelector('#clHeader').innerHTML = year + "年 " + (month + 1) + "月";
-
     var calendar = createProcess(year, month);
     document.querySelector('#calendar').innerHTML = calendar;
 }
@@ -367,10 +378,6 @@ function createProcess(year, month) {
     var endDate = new Date(year, month + 1, 0).getDate();
     var lastMonthEndDate = new Date(year, month, 0).getDate();
     var row = Math.ceil((startDayOfWeek + endDate) / week.length);
-
-
-
-
 
     // 1行ずつ設定
     for (var i = 0; i < row; i++) {
@@ -391,9 +398,9 @@ function createProcess(year, month) {
                 if(dateInfo.isToday){
                     calendar += `<td class='today'  id="${year}_${month}_${count}" onclick = "check(${year},${month},${count})">` + count + "</td>";
                 }
-                // else if(dateInfo.isHoliday) {
-                //     calendar += "<td class='holiday' title='" + dateInfo.holidayName + "'>" + count + "</td>";
-                // }
+                else if(dateInfo.isHoliday) {
+                    calendar += "<td class='holiday' title='" + dateInfo.holidayName + "'>" + count + "</td>";
+                }
                 else {
                     calendar += `<td  id="${year}_${month}_${count}" onclick = "check(${year},${month},${count})">` + count + "</td>";
                 }
@@ -402,12 +409,7 @@ function createProcess(year, month) {
         calendar += "</tr>";
     }
     return calendar;
-  
 
-
-      // console.log(year);
-      // console.log(month);
-      // console.log(day);
 }
 
 function check(year,month,day){
@@ -454,10 +456,5 @@ function isHoliday(year, month, day) {
 }
 
 
-confirmDateBtn.addEventListener('click',
-function(){
-  overlay.classList.remove('active')
-  calenderModal.classList.remove('active');
-}
-)
+
 
