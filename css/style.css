@@ -1,7 +1,12 @@
+html{
+  font-size: 18px;
+  height: 100vh;
+}
+
 body{
   background-color: #F5F5F8;
   max-width: 1500px;
-  min-width: 970px;
+  /* min-width: 970px; */
   /*↑仮*/
   height: 100%;
 }
@@ -32,6 +37,10 @@ header{
   height: 100%;
 }
 
+.week-count-wrapper{
+  display: block;
+}
+
 .week-count{
   color: #A2C0D6;
   margin-left: 30px;
@@ -46,21 +55,21 @@ header{
 }
 
 .header-right-button{
-  background: linear-gradient(to right, #1073BD,  #3BCDFE);
-  color: white;
-  padding: 10px 40px ;
-  /* height: 44px; */
   border-radius: 50px;
+  background: linear-gradient(to right, #1073BD,  #3BCDFE);
   box-shadow: 0px 5px 15px #1F92D4 ;
+  color: white;
+  font-size:1rem ;
+  padding: 10px 40px ;
 }
 
-.header-right-button p{
-  font-size: ;
+.header-right-button{
 }
 
 main{
   width: 100%;
   padding: 0px 50px;
+  height: 100%;
 }
 
 .main-inner{
@@ -107,19 +116,20 @@ main{
 
 .time-span{
   color: #0F71BC;
-  font-size: 15px;
+  font-size: 0.83rem;
   font-weight: bold;
 }
 
 .study-time-figure{
   color: #111111;
-  font-size: 35px;
+  font-size: 1.94rem;
   font-weight: bold;
 }
 
 .hour{
   color: #97B9D1;
-  font-size: 15px;
+  font-size: 0.83rem;
+
   font-weight: bold;
 }
 
@@ -159,7 +169,7 @@ main{
 
 .graph-title{
   padding: 20px;
-  font-size: 20px;
+  font-size: 1.1rem;
   height: 13%;
   font-weight: bold;
 }
@@ -174,30 +184,96 @@ main{
   height: 37%;
 }
 
+.pie-chart-legend{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pie-chart-legend p{
+  margin-right: 8px;
+}
+
+.legend-1 i{
+  color:#3CCEFE;
+}
+.legend-2 i{
+  color:#0F71BD;
+}
+.legend-3 i{
+  color:#1754EF;
+}
+.legend-4 i{
+  color:#20BDDE;
+}
+.legend-5 i{
+  color:#B29EF3;
+}
+.legend-6 i{
+  color:#6D46EC;
+}
+.legend-7 i{
+  color: #4A17EF;
+}
+.legend-8 i{
+  color: #3105C0;
+}
+
+/* メインタグの下の部分。PCは年月、SPは年月と記録・投稿ボタン */
+.main-bottom{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 2%;
+  padding: 0px 5px;
+  /* display: flex;
+  justify-content: center; */
+  position: relative;
+}
 /* 下の年月変更ボタン */
 .change-month{
   display: flex;
   justify-content: space-around;
   width: 25%;
   height: 15px;
-  margin: 0 auto;
-  margin-top: 40px;
-}
 
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0%);
+
+}
 .change-to-previous-month{
   color:#1575BE;
   font-weight:5000 ;
   font-weight: bold;
 }
-
 .month{
   font-weight: bold;
 }
-
 .change-to-next-month{
   color: #98B9D1;
   font-weight: bold;
 }
+/* スマホの時の記録・投稿ボタン */
+.sp-open-record-button{
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  background: linear-gradient(to right, #1073BD,  #3BCDFE);
+  box-shadow: 0px 5px 15px #1F92D4 ;
+  color: white;
+  font-size:1rem ;
+  display: none;
+  font-size: 1rem;
+  margin-top: 10%;
+  position: absolute;
+}
+
+.sp-open-record-button-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 
 /* モーダル関係の部品 */
 
@@ -206,6 +282,7 @@ main{
 display: flex;
 justify-content: flex-end;
 margin: 0px 20px;
+z-index: 20;
 }
 
 .close-button{
@@ -292,7 +369,8 @@ transform: translate(-50%,-50%) rotate(-45deg);
 .checkbox-fontas {
   position: relative;
   vertical-align: middle;
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-size: 1rem;
 }
 .checkbox + .checkbox-fontas:before {
   font-weight: 900;
@@ -325,7 +403,8 @@ textarea{
 .checkbox-fontas-twitter {
   position: relative;
   vertical-align: middle;
-  font-size: 30px;
+  /* font-size: 30px; */
+  font-size: 1.67rem;
 }
 .checkbox-twitter + .checkbox-fontas-twitter:before {
   font-weight: 900;
@@ -354,7 +433,8 @@ textarea{
 }
 .submit-button p{
   color: white;
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-size: 1rem;
   /* 中央揃え */
   position: absolute;
   top: 50%;
@@ -372,7 +452,8 @@ textarea{
 }
 .gj-message{
   color: #C5E174;
-  font-size: 25px;
+  /* font-size: 25px; */
+  font-size: 1.39rem;
   text-align: center;
 }
 /* 完了のチェックマーク */
@@ -385,7 +466,8 @@ textarea{
 .checkbox-fontas-finish {
   position: relative;
   vertical-align: middle;
-  font-size: 100px;
+  /* font-size: 100px; */
+  font-size: 5.56rem;
 }
 .checkbox-finish + .checkbox-fontas-finish:before {
   font-weight: 900;
@@ -400,7 +482,8 @@ textarea{
 /*完了メッセージ  */
 .finish-message-text{
   color: black;
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: 1.11rem;
   text-align: center;
   padding: 10px 0px;
 }
@@ -433,17 +516,28 @@ textarea{
 
 /* 記録モーダル */
 .modal{
-  font-size: 15px;
+  /* font-size: 15px; */
+  font-size: 0.83rem;
   background-color: white;
+
+
   margin: 0 auto;
   width: 900px;
-  margin-bottom: 100px;  /*仮 */
-  border-radius: 30px;
+  
+  
+  /* border-radius: 30px; */
+
+  border-radius: 30px 30px 30px 30px;
+
+
   /* 位置の調整(真ん中に表示) */
+  
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+
   /* デフォルトでは非表示にしておく */
   opacity: 0;
   visibility: hidden;
@@ -461,7 +555,8 @@ textarea{
 .loading-modal{
   height: 555.5px;
   position: relative;
-  font-size: 15px;
+  /* font-size: 15px; */
+  font-size: 0.83rem;
   background-color: white;
   margin: 0 auto;
   width: 900px;
@@ -485,20 +580,76 @@ textarea{
   z-index: 9;
 }
 /* ローディングのクルクル */
+
+.loading-content{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.loading-content-inner{
+  width: 160px;
+  height: 160px;
+  transform: translate(0%,-20%);
+}
+
 .loading{
+  background: linear-gradient(to right, #1073BD,  #3BCDFE);
+  width:160px;
+  height:160px;
+  border-radius:150px;
+  box-sizing:border-box;
+  position:absolute;
+  animation:loading 1.2s linear infinite;
+  -webkit-animation:loading 1.2s linear infinite;
+
+}
+
+
+.loading3{
   width:160px;
   height:160px;
   border-radius:150px;
   border:15px solid #fff;
-  border-top-color:rgba(0,0,0,0.3);
+  border-top-color:white;
+  border-bottom-color:transparent;
+  border-left-color:transparent;
+  border-right-color:transparent;
   box-sizing:border-box;
   position:absolute;
-  top:50%;left:50%;
-  margin-top:-80px;
-  margin-left:-80px;
-  animation:loading 1.2s linear infinite;
-  -webkit-animation:loading 1.2s linear infinite;
+  animation:loading3 1.2s linear infinite;
+  -webkit-animation:loading3 1.2s linear infinite;
+
 }
+
+.loading4{
+  width: 130px;
+  height: 130px;
+  border-radius: 150px;
+  background-color: white;
+}
+
+.loading2{
+  background-color: transparent;
+  width: 160px;
+  height:160px;
+  border-radius:160px;
+  border:15px solid white;
+  border-top-color:transparent;
+  border-bottom-color:transparent;
+  border-left-color:transparent;
+  border-right-color:transparent;
+
+  box-sizing:border-box;
+  position:absolute;
+
+}
+
+
 @keyframes loading{
   0%{transform:rotate(0deg)}
   100%{transform:rotate(360deg)}
@@ -508,11 +659,23 @@ textarea{
   100%{-webkit-transform:rotate(360deg)}
 }
 
+@keyframes loading3{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+@-webkit-keyframes loading{
+  0%{-webkit-transform:rotate(0deg)}
+  100%{-webkit-transform:rotate(360deg)}
+}
+
+
+
 /* 完了モーダル */
 .submit-finish-modal{
   height: 555.5px;
   position: relative;
-  font-size: 15px;
+  /* font-size: 15px; */
+  font-size: 0.83rem;
   background-color: white;
   margin: 0 auto;
   width: 900px;
@@ -538,7 +701,8 @@ textarea{
 
 /* カレンダーモーダル */
 .calender-modal{
-  font-size: 15px;
+  /* font-size: 15px; */
+  font-size: 0.83rem;
   background-color: white;
   margin: 0 auto;
   width: 900px;
@@ -578,6 +742,7 @@ display: inline-block;
 
 /*カレンダーモーダルの中身全体*/
 .wrapper{
+  padding: 50px 20px;
   max-width: 600px;
   height: 400px; /*仮*/
   margin: 0 auto;
@@ -585,22 +750,60 @@ display: inline-block;
 }
 #clHeader {
   text-align: center;
-  font-size: 24px;
+  /* font-size: 24px; */
+  font-size: 1.33rem;
   width: 100%;
-  margin: 1rem 0 0;
+
+  /* margin: 1rem 0 0; */
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
+
+
+}
+/*ボタン*/
+#next-prev-button {
+    position: relative;
+    display: flex;
+}
+
+#next-prev-button button{
+    cursor: pointer;
+    background: white;
+    color: #0F71BB;
+    border: 1px solid white;
+    border-radius: 4px;
+    /* font-size: 1rem; */
+    /* font-size: 2rem; */
+    font-size: 1.33rem;
+
+    padding: 0.5rem 2rem;
+    margin: 1rem 0;
+}
+#next-prev-button button:hover{
+    /* background-color: #D4BB92;
+    border-color: #D4BB92; */
+}
+#prev {
+    /* float: left; */
+}
+#next {
+    /* float: right; */
 }
 /*カレンダー*/
 #calendar {
   text-align: center;
   width: 100%;
+  height: 300px;
 }
 table {
   outline: 2px solid #ddd;
   border-collapse: collapse;
   width: 100%;
+  height: 80%;
 }
 th {
   color: #000;
+  height: 20%;
 }
 th, td {
   outline: 1px solid #ddd;
@@ -632,30 +835,6 @@ td.today {
     color: #fff;
 }
 
-/*ボタン*/
-#next-prev-button {
-    position: relative;
-}
-#next-prev-button button{
-    cursor: pointer;
-    background: #B78D4A;
-    color: #fff;
-    border: 1px solid #B78D4A;
-    border-radius: 4px;
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-    margin: 1rem 0;
-}
-#next-prev-button button:hover{
-    background-color: #D4BB92;
-    border-color: #D4BB92;
-}
-#prev {
-    float: left;
-}
-#next {
-    float: right;
-}
 
 /* カレンダモーダルの決定ボタン */
 .confirm-button{
@@ -673,10 +852,202 @@ td.today {
 }
 .confirm-button p{
   color: white;
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-size: 1rem;
   /* 中央揃え */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+}
+
+
+@media screen and (max-width:850px) {
+  html{
+    font-size: 15px;
+  }
+
+  body{
+    max-width: 1500px;
+    min-width: 400px;
+    /*↑仮*/
+    height: 100%;
+  }
+
+  .header-right{
+    display: none;
+  }
+
+  main{
+    width: 100%;
+    height: 80%;
+    padding: 5px;
+  }
+  
+  .main-inner{
+    height: 100%;
+    display: block;
+  }
+
+  .main-left{
+    width: 100%;
+    height: 50%;
+  }
+
+  .sp-bar{
+    height: 2px;
+    width: 100%;
+    padding: 0px 10px 0px 10px;
+  }
+  .sp-bar-span{
+    background: #DFE7ED;
+    display: block;
+    height: 2px;
+    width: 100%;
+  }
+
+  .main-right{
+    width: 100%;
+    height: 50%;
+  }
+
+  .change-month{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 2%;
+  }
+
+  .sp-open-record-button{
+    display: block;
+
+  }
+
+  /* モーダルの外枠 */
+  .modal{
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    height: 90%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 10%);
+  }
+  .loading-modal{
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    height: 90%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 10%);
+  }
+  .submit-finish-modal{
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    height: 90%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 10%);
+  }
+  .calender-modal{
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    height: 90%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 10%);
+  }
+
+  /* 記録モーダル */
+
+  .modal-forms{
+    display: block;
+    height: 85%;
+    width: 100%;
+    padding: 0px 10px;
+    /* transform: translateY(-5%); */
+  }
+
+  .form-left,.form-right{
+    margin: 0px;
+    width: 100%;
+  }
+  
+  
+  
+  .form-left{
+    margin: 0px;
+    padding: 0;
+    padding-left: 0px;
+    height: 50%;
+  }
+  
+  
+  .form-right{
+    height: 40%;
+    padding-right: 0px;
+  }
+
+  .form-content{
+    padding: 29px 0px 0px 0px;
+
+  }
+  .form-content-title{
+    margin-bottom: 5px;
+  }
+
+
+  
+
+  .form-study-date{
+    height: 20%;
+  }
+  .form-study-content{
+  height: 20%;
+  }
+  .form-study-language{
+    height: 60%;
+  }
+
+  .input-text-common{
+    background-color: #F5F5F8;
+    border-radius: 10px;
+    width: 100%;
+    padding: 2% 20px;
+  
+  }
+
+  textarea{
+    resize: none;
+    width:100%;
+    height:40%;
+  }
+  
+
+  .submit-button{
+    width: 95%;
+  
+
+  }
+
+
+  .checkbox-fontas-finish {
+    font-size: 10rem;
+  }
+    
+  .finish-message-text{
+    font-size: 1.5rem;
+
+    padding: 10px 0px;
+  }
+
+  .wrapper{
+    height: 60%;
+  }
+
+  .calender{
+    height: 100%;
+  }
 }

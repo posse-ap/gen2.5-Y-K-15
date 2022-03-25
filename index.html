@@ -24,7 +24,7 @@
       <div class="header-logo">
         <img src="./pictures/posseLogo.png" alt="">
       </div>
-      <div>
+      <div class="week-count-wrapper">
         <p class="week-count">4th week</p>
       </div>
     </div>
@@ -63,7 +63,9 @@
             </div>
           </div>
         </div>
-
+        <div class="sp-bar">
+          <span class="sp-bar-span"></span>
+        </div>
         <div class="study-time-bargraph-container">
           <div class="study-time-bargraph content-box">
             <!-- <img src="./pictures/bargraph.jpg" alt=""> -->
@@ -82,6 +84,17 @@
             </div>
             <div class="pie-chart-index">
               <!-- <img src="./pictures/pie chart index.jpg" alt=""> -->
+              <div class="legend-language pie-chart-legend">
+                <p class="legend-1"><i class="fas fa-circle "></i> HTML </p>
+                <p class="legend-2"><i class="fas fa-circle "></i> CSS </p>
+                <p class="legend-3"><i class="fas fa-circle "></i> JavaScript </p>
+                <p class="legend-4"><i class="fas fa-circle "></i> PHP </p>
+                <p class="legend-5"><i class="fas fa-circle "></i> Laravel </p>
+                <p class="legend-6"><i class="fas fa-circle "></i> SQL</p>
+                <p class="legend-7"><i class="fas fa-circle "></i> SHELL </p>
+                <p class="legend-8"><i class="fas fa-circle "></i> 情報システム基礎知識(その他) </p>
+                
+              </div>
             </div>
           </div>
         </div>
@@ -94,6 +107,11 @@
             </div>
             <div class="pie-chart-index">
               <!-- <img src="./pictures/pie chart index.jpg" alt=""> -->
+              <div class="legend-contents pie-chart-legend">
+                <p class="legend-1"><i class="fas fa-circle"></i> N予備校</p>
+                <p class="legend-2"><i class="fas fa-circle"></i> ドットインストール</p>
+                <p class="legend-3"><i class="fas fa-circle"></i> POSSE課題</p>
+              </div>
             </div>
           </div>
         </div>
@@ -101,18 +119,27 @@
       </div>
 
     </div>
+    <div class="main-bottom">
+      <div class="change-month">
+        <div class="change-to-previous-month">
+          ＜
+        </div>
+        <div class="month">
+          2022年3月
+        </div>
+        <div class="change-to-next-month">
+          ＞
+        </div>
+      </div>
 
-    <div class="change-month">
-      <div class="change-to-previous-month">
-        ＜
-      </div>
-      <div class="month">
-        2022年3月
-      </div>
-      <div class="change-to-next-month">
-        ＞
+      <div class="sp-open-record-button">
+        <a href="#" id="openRecordModalBtn2" class="sp-open-record-button-text">
+          記録・投稿
+        </a>
       </div>
     </div>
+
+
   </main>
 
   <div class="modal" id="recordModal">
@@ -129,9 +156,10 @@
       <div class="form-left">
 
 
-        <div class="form-content">
+        <div class="form-content form-study-date">
+          <p class="form-content-title">学習日</p>
+
           <label class="">
-            <p class="form-content-title">学習日</p>
             <input type="text" name="date" class="input-text-common" id="openCalenderModalBtn">
           </label>
         </div>
@@ -160,7 +188,7 @@
         </div>
 
 
-        <div class="form-content">
+        <div class="form-content form-study-language">
           <p class="form-content-title">学習言語（複数選択可）</p>
 
 
@@ -225,14 +253,16 @@
         <div class="form-content">
           <label class="">
             <p class="form-content-title">学習時間</p>
-            <input type="text" name="study-time" id="studyTime" class="input-text-common">
+            <input type="number" name="study-time" id="studyTime" class="input-text-common">
           </label>
         </div>
 
         <div class="form-content">
           <label class="">
             <p class="form-content-title">Twitter用コメント</p>
-            <textarea name="" id="commentForTwitter" cols="50" rows="10" class="input-text-common"></textarea>
+            <textarea name="" id="commentForTwitter" cols="50" rows="10" class="input-text-common">POSSE学習記録アプリから記録!
+
+@posse_program posse-ap.com</textarea>
           </label>
           <div class="button-to-share">
             <label id="twitterShareCheckbox">
@@ -243,15 +273,14 @@
           </div>
         </div>
 
-
       </div>
 
     </div>
-
-
-    <a class="submit-button" id="submitBtn" href="">
-      <p>記録・投稿</p>
-    </a>
+    <div>
+      <a class="submit-button" id="submitBtn" href="">
+        <p>記録・投稿</p>
+      </a>
+    </div>
   </div>
 
 
@@ -285,8 +314,20 @@
     </div>
 
     <div class="loading-content">
-      <div class="loading"></div>
+
+      <div class="loading-content-inner">
+
+        <div class="loading"><!-- <div class="loadingxx"></div> --></div>
+        <div class="loading2">
+          <div class="loading4"></div>
+        </div>
+        <div class="loading3"></div>
+        
+      </div>
+
     </div>
+      
+    
   </div>
 
   </div>
@@ -304,12 +345,13 @@
 
     <div class="wrapper">
       <!-- xxxx年xx月を表示 -->
-      <h1 id="clHeader"></h1>
 
       <!-- ボタンクリックで月移動 -->
       <div id="next-prev-button">
-        <button id="prev" onclick="prev()">‹</button>
-        <button id="next" onclick="next()">›</button>
+        <button id="prev" onclick="prev()">＜</button>
+        <h1 id="clHeader"></h1>
+
+        <button id="next" onclick="next()">＞</button>
       </div>
 
       <!-- カレンダー -->

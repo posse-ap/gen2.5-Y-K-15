@@ -1,6 +1,5 @@
   // 棒グラフ
   // 参考：https://www.petitmonte.com/javascript/chart_columnchart.html
-  // name:visualization(可視化),version:バージョン(1),packages:パッケージ(corechart)
   google.load('visualization', '1', {'packages':['corechart']});     
 
   // グラフを描画する為のコールバック関数を指定
@@ -53,6 +52,7 @@
       color:['#3CCEFE'],
       legend:'none',
       vAxis: {
+
         // minValue: 0,
         ticks: [0,2,4,6,8],
         gridlines: {
@@ -75,9 +75,8 @@
     // グラフの描画
     chart.draw(data, options);
 
-    
+    // レスポンシブ
     $(window).resize(function(){
-      console.log('リサイズ')
       chart.draw(data, options);
     });
 
@@ -89,15 +88,11 @@
   function drawChart() {
     var studyLanguagePieChart = document.getElementById('studyLanguagePieChart');
     var data;
-
     var options = {
-      // title: 'My Chart',
       legend: 'none',
       width: '100%',
       height: '100%',
-      // width: 220,
-      // height: 220,
-      backgroundColor: '#ccc',
+      backgroundColor: 'white',
       colors: [
         '#3CCEFE',
         '#0F71BD',
@@ -109,7 +104,7 @@
         '#3105C0'
       ],
       pieHole: 0.4, 
-      'chartArea': {'width': '95%', 'height': '95%'},
+      'chartArea': {'width': '100%', 'height': '100%'},
     };
     var chart = new google.visualization.PieChart(studyLanguagePieChart);
 
@@ -155,15 +150,14 @@
       height: '100%',
       // width: 220,
       // height: 220,
-      backgroundColor: '#ccc',
+      backgroundColor: 'white',
       colors: [
         '#0345EC',
         '#0F71BD',
         '#20BDDE',
       ],
       pieHole: 0.4, 
-      'chartArea': {'width': '95%', 'height': '95%'}
-    };
+      'chartArea': {'width': '100%', 'height': '100%'},    };
     var chart = new google.visualization.PieChart(studyContentsPieChart);
 
     data = new google.visualization.DataTable();
@@ -176,7 +170,7 @@
     // http://posse-task.anti-pattern.co.jp/1st-work/study_contents.json
 
     chart.draw(data, options);
-
+    // レスポンシブ
     $(window).resize(function(){
       console.log('リサイズ')
       chart.draw(data, options);
@@ -196,6 +190,7 @@
   // ボタン、モダル、モダルの閉じるボタン、オーバーレイを変数に格納
   let overlay = document.getElementById('overlay');
   let openRecordModalBtn = document.getElementById('openRecordModalBtn');
+  let openRecordModalBtn2 = document.getElementById('openRecordModalBtn2');
   let submitBtn = document.getElementById('submitBtn');
   let recordModal = document.getElementById('recordModal');
   let loadingModal = document.getElementById('loadingModal');
@@ -210,6 +205,7 @@
   let twitterCheckbox = document.getElementById('twitterCheckbox');
   let commentForTwitter = document.getElementById('commentForTwitter');
   
+
 // 記録画面のモーダル  
 // ボタンをクリックしたら、モダルとオーバーレイに.activeを付ける
 openRecordModalBtn.addEventListener('click', function(e){
@@ -219,6 +215,14 @@ openRecordModalBtn.addEventListener('click', function(e){
   recordModal.classList.add('active');
   overlay.classList.add('active');
 });  
+// ボタンをクリックしたら、モダルとオーバーレイに.activeを付ける
+openRecordModalBtn2.addEventListener('click', function(e){
+  // aタグのデフォルトの機能を停止する
+  e.preventDefault();
+  // モーダルとオーバーレイにactiveクラスを付与する
+  recordModal.classList.add('active');
+  overlay.classList.add('active');
+});
 
 // モダルの閉じるボタンをクリックしたら、モダルとオーバーレイのactiveクラスを外す
 closeRecordModalBtn.addEventListener('click', function(){
@@ -239,7 +243,6 @@ overlay.addEventListener('click', function() {
 
 // カレンダーモーダルの起動
 openCalenderModalBtn.addEventListener('click',function(e){
-  console.log('学習日が押された。')
     // aタグのデフォルトの機能を停止する
     e.preventDefault();
     // モーダルとオーバーレイにactiveクラスを付与する
@@ -266,8 +269,8 @@ submitBtn.addEventListener('click', function(e){
   if(twitterCheckbox.checked == true){
     // （チッターのチェックボックスがチェックされているとき）→記録・投稿ボタンでチッターに飛ぶ
     var s, url;
-    s = commentForTwitter.value + " %23POSSE学習記録 " + "posse-ap.com";
-    // ハッシュタグ生成のためにURLエンコード
+    s = commentForTwitter.value;
+    // "%23"はハッシュタグ生成のためにURLエンコード
     // 参考：https://tech-unlimited.com/urlencode.html
     url = document.location.href;
     if (s != "") {
@@ -288,23 +291,22 @@ submitBtn.addEventListener('click', function(e){
   }
   else{
     // (チッターのチェックボックスがチェックされてないとき)→submitボタンをクリックしたら、モダルとオーバーレイに.activeを付け→３秒後に完了画面出す。
-    // ローディングと完了のモーダルにactiveクラスを付与する
     loadingModal.classList.add('active');
     SubmitFinishModal.classList.add('active');
     setTimeout(() => {
       loadingModal.classList.remove('active');
-    }, 3000);  
+    }, 300000000);  
   }
 });  
 
-// ローディングのモーダルの閉じるボタンを押したら、ローディングモダルと、完了モーダルと、オーバーレイのactiveクラスを外す
+// ローディングのモーダルの閉じるボタンをクリック
 closeLoadingModalBtn.addEventListener('click', function(){
   overlay.classList.remove('active');
   loadingModal.classList.remove('active');
   SubmitFinishModal.classList.remove('active');
   recordModal.classList.remove('active');
 });
-// 完了モダルの閉じるボタンをクリックしたら、モダルとオーバーレイのactiveクラスを外す
+// 完了モダルの閉じるボタンをクリック
 closeSubmitFinishModalBtn.addEventListener('click', function(){
   overlay.classList.remove('active');
   SubmitFinishModal.classList.remove('active');

@@ -33,17 +33,10 @@ header{
   margin-left: 30px;
 }
 
-.header-right{
-  height: 100%;
-  padding: 10px 40px 10px 40px;
-}
 
-.header-right-button{
-  background: linear-gradient(to right, #1073BD,  #3BCDFE);
-  color: white;
-  padding: 10px 40px ;
-  border-radius: 50px;
-  box-shadow: 0px 5px 15px #1F92D4 ;
+
+main{
+  width: 100%;
 }
 
 .error-content{
