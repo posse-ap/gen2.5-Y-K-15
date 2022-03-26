@@ -295,7 +295,7 @@ submitBtn.addEventListener('click', function(e){
     SubmitFinishModal.classList.add('active');
     setTimeout(() => {
       loadingModal.classList.remove('active');
-    }, 300000000);  
+    }, 3000);  
   }
 });  
 
