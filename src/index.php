@@ -1,6 +1,14 @@
-<!-- <?=
-phpinfo()
-?> -->
+<?php
+// phpinfo();
+// session_start();
+require('dbconnect.php');
+
+$big_question_id = $_GET['id'];
+// パラメーターの数字に対応したクイズのタイトルを取得
+$stmt_big_question_title = $db->prepare('SELECT name FROM big_questions WHERE id = ?');
+$stmt_big_question_title->execute(array($big_question_id));
+$big_question_title = $stmt_big_question_title->fetch();
+?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -8,7 +16,7 @@ phpinfo()
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>クイズ</title>
+    <title><?= $big_question_title['name'] ?></title>
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/reset.css">
 </head>
@@ -25,7 +33,7 @@ phpinfo()
     <main>
         <div class="main_container">
             <h1 class="question_title">
-                ガチで東京の人しか解けない！ #東京の難読地名クイズ
+                <?= $big_question_title['name'] ?>
             </h1>
             <div class="main_inner" id="quizDivWrapper">
             </div>
