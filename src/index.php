@@ -3,8 +3,8 @@
 // session_start();
 require('dbconnect.php');
 
-$big_question_id = $_GET['id'];
 // パラメーターの数字に対応したクイズのタイトルを取得
+$big_question_id = $_GET['id'];
 $stmt_big_question_title = $db->prepare('SELECT name FROM big_questions WHERE id = ?');
 $stmt_big_question_title->execute(array($big_question_id));
 $big_question_title = $stmt_big_question_title->fetch();
