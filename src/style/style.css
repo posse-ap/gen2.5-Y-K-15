@@ -23,7 +23,7 @@ width: 200px;
   flex-direction: row;
 }
 
-main{
+.main{
   max-width: 650px; /*もとは650px*/
   align-items: center;
   padding-top: 100px;

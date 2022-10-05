@@ -22,6 +22,17 @@ SET
   id = 2,
   name = "広島の難読地名クイズ";
 
+
+-- INSERT INTO big_questions
+-- SET
+--   id = 1,
+--   name = "Tokyo";
+
+-- INSERT INTO big_questions
+-- SET
+--   id = 2,
+--   name = "Hiroshima";
+
 DROP TABLE IF EXISTS questions;
 
 CREATE TABLE
@@ -63,61 +74,61 @@ INSERT INTO choices
 SET
   id = 1,
   question_id = 1,
-  name = "takanawa",
+  name = "たかなわ",
   valid = 1;
 
 INSERT INTO choices
 SET
   id = 2,
   question_id = 1,
-  name = "takawa",
+  name = "たかわ",
   valid = 0;
 
 INSERT INTO choices
 SET
   id = 3,
   question_id = 1,
-  name = "kouwa",
+  name = "こうわ",
   valid = 0;
 
 INSERT INTO choices
 SET
   id = 4,
   question_id = 2,
-  name = "kameto",
+  name = "かめと",
   valid = 0;
 
 INSERT INTO choices
 SET
   id = 5,
   question_id = 2,
-  name = "kamedo",
+  name = "かめど",
   valid = 0;
 
 INSERT INTO choices
 SET
   id = 6,
   question_id = 2,
-  name = "kameido",
+  name = "かめいど",
   valid = 1;
 
 INSERT INTO choices
 SET
   id = 7,
   question_id = 3,
-  name = "mukouhira",
+  name = "むこうひら",
   valid = 0;
 
 INSERT INTO choices
 SET
   id = 8,
   question_id = 3,
-  name = "mukihira",
+  name = "むきひら",
   valid = 0;
 
 INSERT INTO choices
 SET
   id = 9,
   question_id = 3,
-  name = "mukainada",
+  name = "むかいなだ",
   valid = 1;
