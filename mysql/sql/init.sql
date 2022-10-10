@@ -1,0 +1,7 @@
+-- DROP SCHEMA IF EXISTS posse;
+
+-- CREATE SCHEMA posse;
+
+-- USE posse;
+
+-- DROP TABLE IF EXISTS 
