@@ -1,15 +1,5 @@
 <?php
-// phpinfo();
-// session_start();
 require('dbconnect.php');
-
-?>
-<?php
-// パラメーターの数字に対応したクイズのタイトルを取得
-$big_question_id = $_GET['id'];
-$stmt_big_question_title = $db->prepare('SELECT name FROM big_questions WHERE id = ?');
-$stmt_big_question_title->execute(array($big_question_id));
-$big_question_title = $stmt_big_question_title->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -34,198 +24,66 @@ $big_question_title = $stmt_big_question_title->fetch();
         </div>
     </header>
 
-    
+    <!-- NEW ここから -->
+
     <?php
-    echo $big_question_id.'です';
+    // パラメーターの数字をもとにデータベースからデータをとってくる。
+    $big_question_id = $_GET['id'];
+    $stmt_questions = $db->prepare('SELECT big_questions.name AS big_questions_name, choices.id AS choice_id, questions.image, choices.question_id, choices.name AS choice
+FROM big_questions 
+INNER JOIN questions
+ON big_questions.id = questions.big_question_id
+INNER JOIN choices 
+ON questions.id = choices.question_id WHERE questions.big_question_id = ?');
+    $stmt_questions->execute(array($big_question_id));
+    $questions_array = $stmt_questions->fetchAll();
     ?>
 
-    <?php if ($big_question_id == 1) : ?>
+    <main class="main" style="margin-bottom:100px">
 
-        <div class="main">
-            <h1 class="question_title">
-                <?= $big_question_title['name'] ?>
-            </h1>
-            <div class="main_container">
-                <div class="main_inner" id="quizDivWrapper">
+        <h1 class="question_title">
+            <?= $questions_array[0]['big_questions_name'] ?>
+        </h1>
 
-                    <?php
-                    $question_number = 1;
-                    $choice_number = 0;
-                    ?>
-                    
-                    <!-- １問目 -->
-                    <section class="quiz_div">
-                        <h2 class="question">
-                            <?= $question_number ?>.この地名はなんて読む？
-                        </h2>
-                        <?php
-                        // 設問テーブルから写真のファイル名を持ってくる
-                        $stmt_question_images = $db->prepare('SELECT image FROM questions WHERE id = ?');
-                        $stmt_question_images->execute(array($question_number));
-                        $question_images = $stmt_question_images->fetch();
-                        ?>
-                        <div class="question-image-container">
-                            <img src="./images/<?php echo $question_images['image']; ?>" alt="" class="question_image">
-                        </div>
+        <div class="main_container">
 
-                        <ul class="option_list" id="optionList3">
+            <?php foreach ($questions_array as $question_array) : ?>
 
-                            <?php
-                            for ($i = 0; $i < 3; $i++) {
+                <?php if ($question_array['choice_id'] % 3 == 1) : ?>
 
-                                $choice_number++;
+                    <h2 class="question">
+                        <?php if ($question_array['question_id'] == 1 || $question_array['question_id'] == 2) : ?>
+                            <?= $question_array['question_id']; ?>
+                        <?php else : ?>
+                            <?= $question_array['question_id'] - 2; ?>
+                        <?php endif; ?>
+                        .この地名はなんて読む？
+                    </h2>
+                    <div class="question-image-container">
+                        <img src="./images/<?php echo $question_array['image']; ?>" alt="" class="question_image">
+                    </div>
 
-                                // 選択肢テーブルから
-                                $stmt_choice_name = $db->prepare('SELECT name FROM choices WHERE id = ?');
-                                $stmt_choice_name->execute(array($choice_number));
-                                $choices_name = $stmt_choice_name->fetch();
-
-                                // 選択肢を表示
-
-                                echo '<li class="option">' . $choices_name['name'] . '</li>';
-                            }
-                            ?>
-
-                            <!-- if文でvalidかどうか調べる -->
-                            <!-- <div class="hidden_message_correct" id="correctPopQ3">
-                            <p class="correct">正解！</p>
-                            <p>正解は<?= '高輪'; ?>です！</p>
-                        </div>
-                        <div class="hidden_message_wrong" id="wrongPopQ3">
-                            <p class="wrong">不正解！</p>
-                            <p>正解は<?= '高輪'; ?>です！</p>
-                        </div> -->
-                            <!-- if文でvalidかどうか調べる 終わり -->
-
-                        </ul>
-                    </section>
-
-                    <!-- 2問目 -->
-                    <section class="quiz_div">
-                        <?php
-                        $question_number++;
-                        ?>
-                        <h2 class="question">
-                            <?= $question_number ?>.この地名はなんて読む？
-                        </h2>
-                        <?php
-                        // 設問テーブルから写真のファイル名を持ってくる
-                        $stmt_question_images = $db->prepare('SELECT image FROM questions WHERE id = ?');
-                        $stmt_question_images->execute(array($question_number));
-                        $question_images = $stmt_question_images->fetch();
-                        ?>
-                        <div class="question-image-container">
-                            <img src="./images/<?php echo $question_images['image']; ?>" alt="" class="question_image">
-                        </div>
-                        <div class="question-image-container">
-                            <img src="./images/<?php echo $question_images[$question_number - 1]; ?>" alt="" class="question_image">
-                        </div>
-
-                        <ul class="option_list" id="optionList3">
-
-                            <?php
-                            for ($i = 0; $i < 3; $i++) {
-
-                                $choice_number++;
-
-                                // 選択肢テーブルから
-                                $stmt_choice_name = $db->prepare('SELECT name FROM choices WHERE id = ?');
-                                $stmt_choice_name->execute(array($choice_number));
-                                $choices_name = $stmt_choice_name->fetch();
-
-                                // 選択肢を表示
-
-                                echo '<li class="option">' . $choices_name['name'] . '</li>';
-                            }
-                            ?>
-
-                            <!-- if文でvalidかどうか調べる -->
-                            <!-- <div class="hidden_message_correct" id="correctPopQ3">
-                            <p class="correct">正解！</p>
-                            <p>正解は<?= '高輪'; ?>です！</p>
-                        </div>
-                        <div class="hidden_message_wrong" id="wrongPopQ3">
-                            <p class="wrong">不正解！</p>
-                            <p>正解は<?= '高輪'; ?>です！</p>
-                        </div> -->
-                            <!-- if文でvalidかどうか調べる 終わり -->
-
-                        </ul>
-                    </section>
+                <?php else : ?>
+                    <p></p>
+                <?php endif; ?>
 
 
-                </div>
+                <?php if ($question_array['choice_id'] % 3 == 1) : ?>
+                    <ul class="option_list">
+                    <?php else : ?>
+                        <p></p>
+                    <?php endif; ?>
 
-            </div>
-            </div>
-    <?php else: ?>
+                    <?= '<li class="option">' . $question_array['choice'] . '</li>'; ?>
 
-        <div class="main">
-            <h1 class="question_title">
-                <?= $big_question_title['name'] ?>
-            </h1>
+                    <?php if ($question_array['choice_id'] % 3 == 0) : ?>
+                    </ul>
+                <?php else : ?>
+                    <p></p>
+                <?php endif; ?>
 
-            <div class="main_container">
-                <div class="main_inner" id="quizDivWrapper">
-                    <!--  広島１問目 -->
-                    <section class="quiz_div">
-                        <?php
-                        $question_number = 3;
-                        ?>
-
-                        <h2 class="question">
-                            <?= $question_number-2 ?>.この地名はなんて読む？
-                        </h2>
-                        <?php
-                        // 設問テーブルから写真のファイル名を持ってくる
-                        $stmt_question_images = $db->prepare('SELECT image FROM questions WHERE id = ?');
-                        $stmt_question_images->execute(array($question_number));
-                        $question_images = $stmt_question_images->fetch();
-                        ?>
-                        <div class="question-image-container">
-                            <img src="./images/<?php echo $question_images['image']; ?>" alt="" class="question_image">
-                        </div>
-                        <div class="question-image-container">
-                            <img src="./images/<?php echo $question_images[$question_number - 1]; ?>" alt="" class="question_image">
-                        </div>
-
-                        <ul class="option_list" id="optionList3">
-
-                            <?php
-                            for ($i = 0; $i < 3; $i++) {
-
-                                $choice_number++;
-
-                                // 選択肢テーブルから
-                                $stmt_choice_name = $db->prepare('SELECT name FROM choices WHERE id = ?');
-                                $stmt_choice_name->execute(array($choice_number));
-                                $choices_name = $stmt_choice_name->fetch();
-
-                                // 選択肢を表示
-
-                                echo '<li class="option">' . $choices_name['name'] . '</li>';
-                            }
-                            ?>
-
-                            <!-- if文でvalidかどうか調べる -->
-                            <!-- <div class="hidden_message_correct" id="correctPopQ3">
-                            <p class="correct">正解！</p>
-                            <p>正解は<?= 'むかいなだ'; ?>です！</p>
-                        </div>
-                        <div class="hidden_message_wrong" id="wrongPopQ3">
-                            <p class="wrong">不正解！</p>
-                            <p>正解は<?= 'むかいなだ'; ?>です！</p>
-                        </div> -->
-                            <!-- if文でvalidかどうか調べる 終わり -->
-
-                        </ul>
-                    </section>
-
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
-    <!-- <script src="js/kuizy.js"></script> -->
+            <?php endforeach; ?>
+    </main>
 </body>
 
 </html>
