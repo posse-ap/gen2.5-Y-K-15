@@ -406,7 +406,6 @@ require('dbconnect.php');
         google.load('visualization', '1', {
             'packages': ['corechart']
         });
-
         // グラフを描画する為のコールバック関数を指定
         google.setOnLoadCallback(drawChart);
         // グラフの描画   
@@ -418,7 +417,6 @@ require('dbconnect.php');
                     $stmt_var_chart = $db->prepare('SELECT RIGHT(date,2) AS day, SUM(time) AS time_day FROM logs WHERE LEFT(date,7) = LEFT(?,7) GROUP BY `date` ORDER BY `date` ASC');
                     $stmt_var_chart->execute(array($date_today));
                     $var_chart_array = $stmt_var_chart->fetchAll();
-                    // var_dump($var_chart_array);
                     ?>
                     <?php foreach ($var_chart_array as $var_chart): ?>
                         [<?= $var_chart['day'] ?>,<?= $var_chart['time_day']?>],
@@ -439,8 +437,6 @@ require('dbconnect.php');
                 color: ['#3CCEFE'],
                 legend: 'none',
                 vAxis: {
-
-                    // minValue: 0,
                     ticks: [0, 2, 4, 6, 8],
                     gridlines: {
                         color: 'transparent'
@@ -511,22 +507,9 @@ require('dbconnect.php');
                 <?php foreach ($core_languages_array as $core_language) : ?>
                     data.addRow(['<?= $core_language['language'] ?>' , <?= $core_language['time_language'] ?>]);
                 <?php endforeach; ?>
-                // data.addRow(['HTML', 30]);
-                // data.addRow(['CSS', 20]);
-                // data.addRow(['JavaScript', 10]);
-                // data.addRow(['PHP', 5]);
-                // data.addRow(['Laravel', 5]);
-                // data.addRow(['SQL', 20]);
-                // data.addRow(['SHELL', 20]);
-                // data.addRow(['その他', 10]);
-                // データ元
-                // http://posse-task.anti-pattern.co.jp/1st-work/study_language.json
-
                 chart.draw(data, options);
 
-
                 $(window).resize(function() {
-                    console.log('リサイズ')
                     chart.draw(data, options);
                 });
 
@@ -546,12 +529,9 @@ require('dbconnect.php');
                 var data;
 
                 var options = {
-                    // title: 'My Chart',
                     legend: 'none',
                     width: '100%',
                     height: '100%',
-                    // width: 220,
-                    // height: 220,
                     backgroundColor: 'white',
                     colors: [
                         '#0345EC',
@@ -577,13 +557,9 @@ require('dbconnect.php');
                     data.addRow(['<?= $core_content['material'] ?>' , <?= $core_content['time_material'] ?>]);
                 <?php endforeach; ?>
 
-                // データ元
-                // http://posse-task.anti-pattern.co.jp/1st-work/study_contents.json
-
                 chart.draw(data, options);
                 // レスポンシブ
                 $(window).resize(function() {
-                    console.log('リサイズ')
                     chart.draw(data, options);
                 });
 
