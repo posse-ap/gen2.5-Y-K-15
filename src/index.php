@@ -501,14 +501,24 @@ require('dbconnect.php');
                 data = new google.visualization.DataTable();
                 data.addColumn('string', 'Language');
                 data.addColumn('number', 'hours');
-                data.addRow(['HTML', 30]);
-                data.addRow(['CSS', 20]);
-                data.addRow(['JavaScript', 10]);
-                data.addRow(['PHP', 5]);
-                data.addRow(['Laravel', 5]);
-                data.addRow(['SQL', 20]);
-                data.addRow(['SHELL', 20]);
-                data.addRow(['その他', 10]);
+
+                <?php
+                $stmt_core_languages = $db->prepare('SELECT languages.language AS language , SUM(logs.time) AS time_language FROM logs INNER JOIN languages ON logs.language_id = languages.id GROUP BY language_id ORDER BY language_id ASC');
+                $stmt_core_languages->execute(array());
+                $core_languages_array = $stmt_core_languages->fetchAll();
+                // var_dump($core_languages_array);
+                ?>
+                <?php foreach ($core_languages_array as $core_language) : ?>
+                    data.addRow(['<?= $core_language['language'] ?>' , <?= $core_language['time_language'] ?>]);
+                <?php endforeach; ?>
+                // data.addRow(['HTML', 30]);
+                // data.addRow(['CSS', 20]);
+                // data.addRow(['JavaScript', 10]);
+                // data.addRow(['PHP', 5]);
+                // data.addRow(['Laravel', 5]);
+                // data.addRow(['SQL', 20]);
+                // data.addRow(['SHELL', 20]);
+                // data.addRow(['その他', 10]);
                 // データ元
                 // http://posse-task.anti-pattern.co.jp/1st-work/study_language.json
 
@@ -555,13 +565,18 @@ require('dbconnect.php');
                     },
                 };
                 var chart = new google.visualization.PieChart(studyContentsPieChart);
-
                 data = new google.visualization.DataTable();
                 data.addColumn('string', 'Contents');
                 data.addColumn('number', 'hours');
-                data.addRow(['N予備校', 40]);
-                data.addRow(['ドットインストール', 20]);
-                data.addRow(['課題', 40]);
+                <?php 
+                $stmt_core_contents = $db->prepare('SELECT SUM(logs.time) AS time_material , contents.material AS material FROM logs INNER JOIN contents ON logs.content_id = contents.id GROUP BY content_id ORDER BY content_id ASC');
+                $stmt_core_contents->execute(array());
+                $core_contents_array = $stmt_core_contents->fetchAll();
+                ?>
+                <?php foreach ($core_contents_array as $core_content): ?>
+                    data.addRow(['<?= $core_content['material'] ?>' , <?= $core_content['time_material'] ?>]);
+                <?php endforeach; ?>
+
                 // データ元
                 // http://posse-task.anti-pattern.co.jp/1st-work/study_contents.json
 
