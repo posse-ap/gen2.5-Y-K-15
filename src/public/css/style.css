@@ -1,0 +1,168 @@
+.test{
+  color: blue;
+  padding-top: 100px;
+}
+
+
+.body{
+  margin: 0 auto;
+  max-width: 650px;
+  /* ここが900pxになっていたせいで縮小した時に若干左寄りになっていた。 */
+}
+
+/* ヘッダー */
+.header{
+background-color: white;
+display: flex;
+justify-content: space-between;
+position: fixed;
+width: 650px;/*position プロパティの値が fixed で、 left, right, width プロパティが auto に設定されている場合、横幅は内容に合わせて縮小します。*/
+z-index: 1000;/*これでヘッダーが一番前に来た*/
+}
+.kuizy_logo{
+width: 200px;
+}
+
+/* ヘッダーの右の部分 */
+.header_right_side{
+  display: flex;
+  flex-direction: row;
+}
+
+.main{
+  max-width: 650px; /*もとは650px*/
+  align-items: center;
+  padding-top: 100px;
+}
+
+.main_container{
+  padding: 15px;/*横のスペース*/
+}
+
+.main_inner{
+  margin: auto;
+}
+
+/* 問題文：この地名はなんて読む？ */
+.question{
+  font-size: 30px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.question::after{
+  content: '';
+  position: absolute;
+  left: 0%;
+  bottom: -30px;/*線の上下位置*/
+  display: inline-block;
+  width: 200px;/*線の長さ*/
+  height: 5px;/*線の太さ*/
+  background-color:	#00AB36;/*線の色*/
+}
+
+/* 問題画像 */
+.question_image_container{
+  padding: 20px;
+}
+
+/* 選択肢 */
+.option_list{
+  list-style:none
+}
+
+.option_list .option{
+  font-size: 30px;
+  border:solid #EBEBEB ;
+  border-width: 1.5px;
+  border-bottom-width: 3px;
+  box-shadow: 0px 2px 3px  #EBEBEB;
+  padding: 10px ;
+  margin: 10px;
+}
+
+/* 正解クリック時 */
+.option_correct_after{
+  font-size: 30px;
+  border:solid #EBEBEB ;
+  border-width: 1.5px;
+  border-bottom-width: 3px;
+  padding: 10px ;
+  box-shadow: 0px 2px 3px  #EBEBEB;
+  background-color: #287DFF;
+  color: white;
+}
+
+.pop_up_correct{
+  display: block;
+  background-color: #F5F5F5;
+  padding: 10px ;
+  margin: 10px;
+}
+
+/* 正解！の文字*/
+.correct{
+  position: relative;
+  font-weight: bold;
+  padding: 2px;
+}
+
+/* 正解！の下線 */
+.correct::after{
+  content: '';
+  position: absolute;
+  left: 0%;
+  bottom: -6px;/*線の上下位置*/
+  display: inline-block;
+  width: 50px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  background-color:	#287DFF;/*線の色*/
+}
+
+/* 不正解クリック時 */
+.option_wrong_after{
+  font-size: 30px;
+  border:solid #EBEBEB ;
+  border-width: 1.5px;
+  border-bottom-width: 3px;
+  padding: 10px ;
+  box-shadow: 0px 2px 3px  #EBEBEB;
+  background-color: #FF5128;
+  color: white;
+}
+
+.pop_up_wrong{
+  display: block;
+  background-color: #F5F5F5;
+  padding: 10px; /*上下左右が均等になるように調整*/
+  margin: 10px;
+}
+
+/* 不正解！のところ */
+.wrong{
+  position: relative;
+  font-weight: bold;
+  padding: 2px;
+}
+/* 不正解！の下線 */
+.wrong::after{
+  content: '';
+  position: absolute;
+  left: 0%;
+  bottom: -6px;/*線の上下位置*/
+  display: inline-block;
+  width: 66px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  background-color:	#FF5128;/*線の色*/
+}
+
+
+/* 回答ポップアップを隠す */
+.hidden_message_correct{
+  display: none;
+}
+
+.hidden_message_wrong{
+  display: none;
+}
