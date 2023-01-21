@@ -8,11 +8,21 @@
 </head>
 <body>
   <main>
+  <pre>
+    <?php
+    // var_dump($bigQuestions);
+    ?>
+  </pre>
+
     <ul>
-      <li><a href="./quiz/1">東京の難読地名クイズ</a></li>
-      <li><a href="./quiz/2">広島の難読地名クイズ</a></li>
+      @foreach ($bigQuestions as $bigQuestion)
+      <li><a href="quiz/{{ $bigQuestion->id}}"> {{ $bigQuestion->name }}</a></li>
+      <!-- <li><img src="{{ asset('/images/' . $bigQuestion->image) }}" alt=""></li> -->
+      @endforeach
     </ul>
 
   </main>
 </body>
 </html>
+
+<!-- このページは、/quiz -->

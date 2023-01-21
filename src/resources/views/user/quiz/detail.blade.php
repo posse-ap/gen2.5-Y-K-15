@@ -1,46 +1,35 @@
-<!DOCTYPE html>
-<html lang="ja">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
 
-    </title>
-    <!-- ファイル読み込み参考サイト
-  https://qiita.com/ntm718/items/fed0e1060557a4e28ef3
-  -->
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-</head>
+<pre>
+  <?php var_dump($Questions);?>
+</pre>
 
-<body class="body">
-    <header class="header">
-      <img src="./images/kuizy_logo.jpg" alt="" class="kuizy_logo">
-      <div class="header_right_side">
-            <p>クイズ・診断を作成</p>
-            <div><img src="" alt=""></div>
-            <p>検索</p>
-        </div>
-    </header>
 
-  <h1 class="test">This is test message!!</h1>
-  <main>
-    <div class="main_container">
-      <h1 class="question_title">
-        ガチで東京の人しか解けない！ #東京の難読地名クイズ
-      </h1>
-
-<?php
-?>
+@section('title', 'Detail')
+@section('content')
+  <div class="main_container">
+    <h1 class="question_title">{{ $Questions->name }}</h1>     
+    <div class="main_inner" id="quizDivWrapper">
+      @foreach($Questions->questions as $question)
+      <div class="quiz_div"> 
+        <h2 class="question">{{$loop->iteration}}.この地名はなんて読む？</h2>
+        <!-- https://qiita.com/engineer_atsumi/items/8057b35a28063f03450e  -->
+        <div class="question-image-container">
+            <img src="{{ asset('images/' . $question->image) }}" alt="" class="question_image">`
+        </div> 
+        <ul class="option_list" id="optionList${i + 1}">
+          @foreach($question->choices as $choice)
+          <!-- ↑これ、１階層上のforeachの中だから、$Questions->questions as $questionの$questionの中のchoicesってやつを回すってことになる。それを踏まえて書く。このつながり方というか繋げ方というかリレーションをどうやってやってるか明確にしておくべきである。 -->
+          <li>{{ $choice->name }}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endforeach
       
-      <div class="main_inner" id="quizDivWrapper">
-      </div>
-      </div>
+      
     </div>
-  </main>
-
-  <script src="{{ asset('/js/kuizy.js') }}"></script>
-</body>
-
-</html>
+    </div>
+  </div>
+@section('script')
+<script src="{{ asset('/js/kuizy.js') }}"></script>
+@endsection

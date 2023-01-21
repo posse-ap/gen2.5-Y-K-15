@@ -17,12 +17,15 @@ use Illuminate\Support\Facades\Route;
 // リダイレクト！
 Route::get('/', function () { return redirect('/quiz'); });
 
-
 // クイズ一覧
 // localhost/quizにアクセスしたら、QuizControllerのindexメソッドに。。そしてクイズ一覧表示
 Route::get('/quiz', [QuizController::class, 'index'])->name('quiz.index');
-
-
-
+// 東京と広島のそれぞれのページへ。
 Route::get('/quiz/{id}', [QuizController::class, 'detail'])->whereNumber('id')->name('quiz.detail');
+// whereNumber って何
 
+// 管理者画面
+// https://qiita.com/yamotuki/items/b96978f8e379e285ecb6 
+Route::middleware(['auth'])->group(function(){
+    Route::get('/admin', 'AdminController@index');
+});

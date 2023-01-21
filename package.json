@@ -1,0 +1,19 @@
+{
+  "name": "gen2.5-y-k-15",
+  "version": "1.0.0",
+  "description": "1. `cd docker` 2. `docker compose build --no-cache` (ビルドする) 3. `docker compose up -d` (コンテナをたてる) 4. `docker compose exec app bash` (app コンテナに入る) 5. `composer create-project --prefer-dist laravel/laravel . \"9.*\"` (src 配下に laravel 9 をインストール) 6. ブラウザで`http://localhost`にアクセスし、「laravel」が表示されることを確認。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/posse-ap/gen2.5-Y-K-15.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/posse-ap/gen2.5-Y-K-15/issues"
+  },
+  "homepage": "https://github.com/posse-ap/gen2.5-Y-K-15#readme"
+}

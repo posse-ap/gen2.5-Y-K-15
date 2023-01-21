@@ -8,7 +8,6 @@ use Illuminate\Database\Seeder;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\DB;
 // この二つ追加
-
 class QuestionsTableSeeder extends Seeder
 {
     /**

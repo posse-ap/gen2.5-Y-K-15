@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             BigQuestionsTableSeeder::class,
             QuestionsTableSeeder::class,
             ChoicesTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
     }
 }
